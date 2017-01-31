@@ -1,0 +1,77 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      Object {},
+    ]
+  }>
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits="button"
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "#2f8cff",
+        "borderWidth": 1,
+        "height": 30,
+        "justifyContent": "center",
+        "opacity": 1,
+        "padding": 0,
+        "paddingHorizontal": 0,
+      }
+    }
+    testID={undefined}>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "color": "#fff",
+              "fontWeight": "600",
+              "paddingHorizontal": 8,
+            },
+            Object {
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#2f8cff",
+                "fontSize": 14,
+                "fontWeight": "normal",
+              },
+              Object {},
+              undefined,
+            ],
+            Object {},
+          ]
+        }>
+        Feed
+      </Text>
+    </View>
+  </View>
+</View>
+`;

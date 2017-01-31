@@ -1,0 +1,59 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={undefined}>
+  <View
+    onLayout={[Function]} />
+  <View
+    style={
+      Object {
+        "position": "absolute",
+      }
+    }>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#444",
+              "borderRadius": 20,
+              "padding": 10,
+              "paddingBottom": 3,
+              "paddingTop": 3,
+            },
+            Object {
+              "backgroundColor": "#2f8cff",
+            },
+            Array [
+              Object {
+                "left": 0,
+                "marginLeft": -18,
+                "top": -10,
+              },
+            ],
+          ]
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#fff",
+                "fontSize": 14,
+              },
+              undefined,
+            ]
+          }>
+          12
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

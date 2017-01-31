@@ -1,0 +1,65 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={undefined}>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "minHeight": 70,
+          "paddingHorizontal": 25,
+          "paddingVertical": 15,
+          "position": "relative",
+        },
+        Object {
+          "backgroundColor": "#2f8cff",
+        },
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 14,
+        }
+      }>
+      Hey, What’s Up?
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "alignItems": "flex-start",
+            "justifyContent": "center",
+          },
+        ]
+      }>
+      <View
+        style={
+          Object {
+            "borderBottomColor": "transparent",
+            "borderBottomWidth": 6,
+            "borderRightColor": "#2f8cff",
+            "borderRightWidth": 7,
+            "borderTopColor": "transparent",
+            "borderTopWidth": 6,
+            "marginLeft": -7,
+          }
+        } />
+    </View>
+  </View>
+</View>
+`;

@@ -1,0 +1,22 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#bdc1cc",
+      "borderRadius": 3,
+      "height": 6,
+      "overflow": "hidden",
+      "width": 300,
+    }
+  }>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#2f8cff",
+        "borderRadius": 3,
+        "height": 6,
+        "width": 150,
+      }
+    } />
+</View>
+`;

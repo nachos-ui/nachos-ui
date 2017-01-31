@@ -1,0 +1,32 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={Object {}}>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#bdc1cc",
+        "borderRadius": 9999,
+        "borderWidth": 2,
+        "height": 26,
+        "justifyContent": "center",
+        "opacity": 1,
+        "position": "relative",
+        "width": 26,
+      }
+    }
+    testID={undefined} />
+</View>
+`;

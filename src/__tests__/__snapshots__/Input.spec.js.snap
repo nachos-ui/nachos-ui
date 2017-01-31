@@ -1,0 +1,93 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "borderWidth": 1,
+      },
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "#bdc1cc",
+        "borderStyle": "solid",
+      },
+      undefined,
+      Object {
+        "height": 46,
+        "width": undefined,
+      },
+      Object {},
+    ]
+  }>
+  <TextInput
+    editable={true}
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "borderWidth": 1,
+        },
+        Object {
+          "borderColor": "transparent",
+          "paddingLeft": 12,
+          "paddingRight": 6,
+        },
+        undefined,
+        Object {
+          "color": "#bdc1cc",
+          "height": 46,
+          "width": undefined,
+        },
+      ]
+    }
+    value="Your name" />
+</View>
+`;
+
+exports[`test should render disabled 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "borderWidth": 1,
+      },
+      Object {
+        "backgroundColor": "#fff",
+        "borderColor": "#bdc1cc",
+        "borderStyle": "solid",
+      },
+      undefined,
+      Object {
+        "height": 46,
+        "width": undefined,
+      },
+      Object {
+        "opacity": 0.2,
+      },
+    ]
+  }>
+  <TextInput
+    editable={false}
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "borderWidth": 1,
+        },
+        Object {
+          "borderColor": "transparent",
+          "paddingLeft": 12,
+          "paddingRight": 6,
+        },
+        undefined,
+        Object {
+          "color": "#bdc1cc",
+          "height": 46,
+          "width": undefined,
+        },
+      ]
+    }
+    value="Your name" />
+</View>
+`;

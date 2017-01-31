@@ -1,0 +1,78 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginVertical": 25,
+        "position": "relative",
+      },
+      undefined,
+      Object {
+        "height": 6,
+        "width": 300,
+      },
+    ]
+  }>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#bdc1cc",
+        "borderRadius": 3,
+        "height": 6,
+        "overflow": "hidden",
+        "width": 300,
+      }
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#2f8cff",
+          "borderRadius": 3,
+          "height": 6,
+          "width": 150,
+        }
+      } />
+  </View>
+  <View
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 22,
+          "height": 44,
+          "left": -22,
+          "position": "absolute",
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.25,
+          "shadowRadius": 4,
+          "top": -20,
+          "width": 44,
+        },
+        Object {
+          "transform": Array [
+            Object {
+              "translateX": 150,
+            },
+          ],
+        },
+        undefined,
+      ]
+    } />
+</View>
+`;

@@ -1,0 +1,180 @@
+exports[`test should hide indicators 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      Object {
+        "height": 300,
+        "width": 300,
+      },
+      undefined,
+    ]
+  }>
+  <ScrollView
+    automaticallyAdjustContentInsets={false}
+    bounces={false}
+    decelerationRate="fast"
+    directionalLockEnabled={true}
+    height={undefined}
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={true}
+    scrollEventThrottle={200}
+    showsHorizontalScrollIndicator={false}>
+    <Image
+      source={
+        Object {
+          "uri": "https://placehold.it/600/311112",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "resizeMode": "cover",
+          },
+          Object {
+            "height": 300,
+            "width": 300,
+          },
+        ]
+      } />
+    <Image
+      source={
+        Object {
+          "uri": "https://placehold.it/600/59C480",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "resizeMode": "cover",
+          },
+          Object {
+            "height": 300,
+            "width": 300,
+          },
+        ]
+      } />
+  </ScrollView>
+</View>
+`;
+
+exports[`test should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "position": "relative",
+      },
+      Object {
+        "height": 400,
+        "width": 300,
+      },
+      undefined,
+    ]
+  }>
+  <ScrollView
+    automaticallyAdjustContentInsets={false}
+    bounces={false}
+    decelerationRate="fast"
+    directionalLockEnabled={true}
+    height={400}
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={true}
+    scrollEventThrottle={200}
+    showsHorizontalScrollIndicator={false}>
+    <Image
+      source={
+        Object {
+          "uri": "https://placehold.it/600/311112",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "resizeMode": "cover",
+          },
+          Object {
+            "height": 400,
+            "width": 300,
+          },
+        ]
+      } />
+    <Image
+      source={
+        Object {
+          "uri": "https://placehold.it/600/59C480",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "resizeMode": "cover",
+          },
+          Object {
+            "height": 400,
+            "width": 300,
+          },
+        ]
+      } />
+  </ScrollView>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "bottom": 5,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+        },
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#2f8cff",
+            "fontSize": 24,
+            "letterSpacing": 6,
+          },
+        ]
+      }>
+      •
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#bdc1cc",
+            "fontSize": 24,
+            "letterSpacing": 6,
+          },
+        ]
+      }>
+      •
+    </Text>
+  </View>
+</View>
+`;

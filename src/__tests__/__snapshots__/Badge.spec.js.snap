@@ -1,0 +1,41 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+    }
+  }>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#444",
+          "borderRadius": 20,
+          "padding": 10,
+          "paddingBottom": 3,
+          "paddingTop": 3,
+        },
+        Object {
+          "backgroundColor": "red",
+        },
+        undefined,
+      ]
+    }>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#fff",
+            "fontSize": 14,
+          },
+          undefined,
+        ]
+      }>
+      4
+    </Text>
+  </View>
+</View>
+`;

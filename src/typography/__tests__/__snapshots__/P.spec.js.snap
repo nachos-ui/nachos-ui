@@ -1,0 +1,21 @@
+exports[`test should render correctly 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "color": "#333",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "paddingVertical": 10,
+        "textAlign": "left",
+      },
+      undefined,
+    ]
+  }>
+  Text
+</Text>
+`;

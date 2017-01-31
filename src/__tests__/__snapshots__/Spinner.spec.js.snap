@@ -1,0 +1,51 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+    }
+  }>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#2f8cff",
+        "borderRadius": 25,
+        "height": 25,
+        "transform": Array [
+          Object {
+            "scale": 0.4,
+          },
+        ],
+        "width": 25,
+      }
+    } />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#2f8cff",
+        "borderRadius": 25,
+        "height": 25,
+        "transform": Array [
+          Object {
+            "scale": 0.4,
+          },
+        ],
+        "width": 25,
+      }
+    } />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#2f8cff",
+        "borderRadius": 25,
+        "height": 25,
+        "transform": Array [
+          Object {
+            "scale": 0.4,
+          },
+        ],
+        "width": 25,
+      }
+    } />
+</View>
+`;

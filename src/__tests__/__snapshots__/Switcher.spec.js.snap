@@ -1,0 +1,305 @@
+exports[`test should render correctly 1`] = `
+<View
+  style={
+    Array [
+      undefined,
+      Object {
+        "flexDirection": "row",
+      },
+    ]
+  }>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {},
+      ]
+    }>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "borderBottomLeftRadius": 0,
+          "borderColor": "#ddd",
+          "borderRightWidth": 0,
+          "borderTopLeftRadius": 0,
+          "borderWidth": 1,
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 0,
+        }
+      }
+      testID={undefined}>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#bdc1cc",
+                "fontSize": 20,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#fff",
+                "fontWeight": "600",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#bdc1cc",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                },
+                Object {},
+                undefined,
+              ],
+              Object {},
+            ]
+          }>
+          VOLUME
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {},
+      ]
+    }>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#2f8cff",
+          "borderColor": "#2f8cff",
+          "borderWidth": 1,
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 0,
+        }
+      }
+      testID={undefined}>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#fff",
+                "fontSize": 20,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#fff",
+                "fontWeight": "600",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#bdc1cc",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                },
+                Object {
+                  "color": "#fff",
+                },
+                undefined,
+              ],
+              Object {},
+            ]
+          }>
+          WALK
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {},
+      ]
+    }>
+    <View
+      accessibilityComponentType="button"
+      accessibilityLabel={undefined}
+      accessibilityTraits="button"
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "borderBottomRightRadius": 0,
+          "borderColor": "#ddd",
+          "borderLeftWidth": 0,
+          "borderTopRightRadius": 0,
+          "borderWidth": 1,
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "padding": 0,
+          "paddingHorizontal": 0,
+        }
+      }
+      testID={undefined}>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }>
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#bdc1cc",
+                "fontSize": 20,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }>
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#fff",
+                "fontWeight": "600",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#bdc1cc",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                },
+                Object {},
+                undefined,
+              ],
+              Object {},
+            ]
+          }>
+          WINE
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
