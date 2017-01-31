@@ -1,5 +1,6 @@
 ![Nachos UI](https://cldup.com/xHYkAezOnI.jpg)
 
+![Travis](https://api.travis-ci.org/avocode/nachos-ui.svg?branch=master)
 
 ## Intro
 
