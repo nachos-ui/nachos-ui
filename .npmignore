@@ -3,7 +3,8 @@ docs/
 example/
 ios/
 src/
-src/__tests__/
+lib/__tests__/
+lib/**/__tests__/
 styleguide/
 
 .babelrc
