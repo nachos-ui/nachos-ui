@@ -11,6 +11,13 @@
   max-width: 100%;
 }
 
+/* Hack for Safari http://stackoverflow.com/questions/35464067/flexbox-not-working-on-button-element-in-some-browsers */
+button::before,
+button::after {
+    content: '';
+    flex: 1 0 auto;
+}
+
 p, li {
   font-size: 15px;
   line-height: 1.5;
