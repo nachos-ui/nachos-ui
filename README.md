@@ -4,7 +4,7 @@
 
 ## Intro
 
-Nachos UI is a React Native component library. 
+Nachos UI is a React Native component library. [Read more](https://medium.com/avocode-stories/my-experience-of-building-nachos-ui-kit-for-react-native-c8307500b8a4#.sh5cvk242) about how we built it on Medium.
 
 
 ### Features:
