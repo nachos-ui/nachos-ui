@@ -23,6 +23,7 @@ exports[`test should render correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       hitSlop={undefined}
+      isTVSelectable={true}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -45,7 +46,8 @@ exports[`test should render correctly 1`] = `
           "paddingHorizontal": 0,
         }
       }
-      testID={undefined}>
+      testID={undefined}
+      tvParallaxProperties={undefined}>
       <View
         style={
           Object {
@@ -121,6 +123,7 @@ exports[`test should render correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       hitSlop={undefined}
+      isTVSelectable={true}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -140,7 +143,8 @@ exports[`test should render correctly 1`] = `
           "paddingHorizontal": 0,
         }
       }
-      testID={undefined}>
+      testID={undefined}
+      tvParallaxProperties={undefined}>
       <View
         style={
           Object {
@@ -218,6 +222,7 @@ exports[`test should render correctly 1`] = `
       accessibilityTraits="button"
       accessible={true}
       hitSlop={undefined}
+      isTVSelectable={true}
       onLayout={undefined}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -240,7 +245,8 @@ exports[`test should render correctly 1`] = `
           "paddingHorizontal": 0,
         }
       }
-      testID={undefined}>
+      testID={undefined}
+      tvParallaxProperties={undefined}>
       <View
         style={
           Object {

@@ -13,55 +13,46 @@ exports[`test should hide indicators 1`] = `
       undefined,
     ]
   }>
-  <ScrollView
-    automaticallyAdjustContentInsets={false}
-    bounces={false}
-    decelerationRate="fast"
-    directionalLockEnabled={true}
-    height={undefined}
-    horizontal={true}
-    onMomentumScrollEnd={[Function]}
-    pagingEnabled={true}
-    removeClippedSubviews={true}
-    scrollEventThrottle={200}
-    showsHorizontalScrollIndicator={false}>
-    <Image
-      source={
-        Object {
-          "uri": "https://placehold.it/600/311112",
+  <RCTScrollView>
+    <View>
+      <Image
+        source={
+          Object {
+            "uri": "https://placehold.it/600/311112",
+          }
         }
-      }
-      style={
-        Array [
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "resizeMode": "cover",
+            },
+            Object {
+              "height": 300,
+              "width": 300,
+            },
+          ]
+        } />
+      <Image
+        source={
           Object {
-            "flex": 1,
-            "resizeMode": "cover",
-          },
-          Object {
-            "height": 300,
-            "width": 300,
-          },
-        ]
-      } />
-    <Image
-      source={
-        Object {
-          "uri": "https://placehold.it/600/59C480",
+            "uri": "https://placehold.it/600/59C480",
+          }
         }
-      }
-      style={
-        Array [
-          Object {
-            "flex": 1,
-            "resizeMode": "cover",
-          },
-          Object {
-            "height": 300,
-            "width": 300,
-          },
-        ]
-      } />
-  </ScrollView>
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "resizeMode": "cover",
+            },
+            Object {
+              "height": 300,
+              "width": 300,
+            },
+          ]
+        } />
+    </View>
+  </RCTScrollView>
 </View>
 `;
 
@@ -80,55 +71,46 @@ exports[`test should render correctly 1`] = `
       undefined,
     ]
   }>
-  <ScrollView
-    automaticallyAdjustContentInsets={false}
-    bounces={false}
-    decelerationRate="fast"
-    directionalLockEnabled={true}
-    height={400}
-    horizontal={true}
-    onMomentumScrollEnd={[Function]}
-    pagingEnabled={true}
-    removeClippedSubviews={true}
-    scrollEventThrottle={200}
-    showsHorizontalScrollIndicator={false}>
-    <Image
-      source={
-        Object {
-          "uri": "https://placehold.it/600/311112",
+  <RCTScrollView>
+    <View>
+      <Image
+        source={
+          Object {
+            "uri": "https://placehold.it/600/311112",
+          }
         }
-      }
-      style={
-        Array [
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "resizeMode": "cover",
+            },
+            Object {
+              "height": 400,
+              "width": 300,
+            },
+          ]
+        } />
+      <Image
+        source={
           Object {
-            "flex": 1,
-            "resizeMode": "cover",
-          },
-          Object {
-            "height": 400,
-            "width": 300,
-          },
-        ]
-      } />
-    <Image
-      source={
-        Object {
-          "uri": "https://placehold.it/600/59C480",
+            "uri": "https://placehold.it/600/59C480",
+          }
         }
-      }
-      style={
-        Array [
-          Object {
-            "flex": 1,
-            "resizeMode": "cover",
-          },
-          Object {
-            "height": 400,
-            "width": 300,
-          },
-        ]
-      } />
-  </ScrollView>
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "resizeMode": "cover",
+            },
+            Object {
+              "height": 400,
+              "width": 300,
+            },
+          ]
+        } />
+    </View>
+  </RCTScrollView>
   <View
     style={
       Array [
