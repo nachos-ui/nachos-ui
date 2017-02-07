@@ -12,8 +12,7 @@ exports[`test should render correctly 1`] = `
           "backgroundColor": "#444",
           "borderRadius": 20,
           "padding": 10,
-          "paddingBottom": 3,
-          "paddingTop": 3,
+          "paddingVertical": 4,
         },
         Object {
           "backgroundColor": "red",
@@ -29,7 +28,7 @@ exports[`test should render correctly 1`] = `
         Array [
           Object {
             "color": "#fff",
-            "fontSize": 14,
+            "fontSize": 12,
           },
           undefined,
         ]

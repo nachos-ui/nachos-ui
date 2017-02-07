@@ -6,7 +6,9 @@ exports[`test should render correctly 1`] = `
   <View
     style={
       Object {
+        "left": 0,
         "position": "absolute",
+        "top": 0,
       }
     }>
     <View
@@ -22,8 +24,7 @@ exports[`test should render correctly 1`] = `
               "backgroundColor": "#444",
               "borderRadius": 20,
               "padding": 10,
-              "paddingBottom": 3,
-              "paddingTop": 3,
+              "paddingVertical": 4,
             },
             Object {
               "backgroundColor": "#2f8cff",
@@ -45,7 +46,7 @@ exports[`test should render correctly 1`] = `
             Array [
               Object {
                 "color": "#fff",
-                "fontSize": 14,
+                "fontSize": 12,
               },
               undefined,
             ]
