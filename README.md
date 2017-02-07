@@ -6,7 +6,6 @@
 
 Nachos UI is a React Native component library. [Read more](https://medium.com/avocode-stories/my-experience-of-building-nachos-ui-kit-for-react-native-c8307500b8a4#.sh5cvk242) about how we built it on Medium.
 
-
 ### Features:
 
 - Over 30 UI components
@@ -19,6 +18,7 @@ Nachos UI is a React Native component library. [Read more](https://medium.com/av
 
 ## Getting started
 
+> **Requires React Native 0.40 and higher.**
 
 ```
 $ npm install --save nachos-ui  
