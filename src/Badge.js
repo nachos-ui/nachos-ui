@@ -6,7 +6,9 @@ const defaultTheme = {
   BADGE_BACKGROUND: '#444',
   BADGE_BORDER_RADIUS: 20,
   BADGE_FONT_COLOR: '#fff',
-  BADGE_FONT_SIZE: 14,
+  BADGE_PADDING_VERTICAL: 4,
+  BADGE_PADDING_HORIZONTAL: 10,
+  BADGE_FONT_SIZE: 12,
 }
 
 themeManager.setSource('Badge', () => defaultTheme)
@@ -17,9 +19,8 @@ const defaultStyle = (theme) => {
       flexDirection: 'row',
     },
     base: {
-      padding: 10,
-      paddingTop: 3,
-      paddingBottom: 3,
+      padding: theme.BADGE_PADDING_HORIZONTAL,
+      paddingVertical: theme.BADGE_PADDING_VERTICAL,
       backgroundColor: theme.BADGE_BACKGROUND,
       borderRadius: theme.BADGE_BORDER_RADIUS,
     },
