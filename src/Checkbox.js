@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import themeManager from './themeManager'
 
@@ -29,6 +29,9 @@ const defaultStyle = (theme) => {
       borderWidth: theme.CHECKBOX_BORDER_WIDTH,
       justifyContent: 'center',
       alignItems: 'center',
+      // NOTE: Firefox and Safari have a problem when flexbox is used for buttons
+      // http://stackoverflow.com/questions/35464067/flexbox-not-working-on-button-element-in-some-browsers
+      ...(Platform.OS === 'web' ? { textAlign: 'center' } : {}),
     },
     kind: {
       circle: {
