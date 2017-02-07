@@ -16,6 +16,8 @@ const defaultStyle = (theme) => {
   return {
     base: {
       position: 'absolute',
+      top: 0,
+      left: 0,
     },
     types: {
       success: theme.INDICATOR_SUCCESS_COLOR,
