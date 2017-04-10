@@ -37,7 +37,7 @@ import { Button } from 'nachos-ui'
 
 const App = () => {
   return (
-  	<View>
+    <View>
     	<Button>Button</Button>
     </View>
   )
