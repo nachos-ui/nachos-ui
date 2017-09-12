@@ -43,7 +43,7 @@ const RadioGroup = (props) => {
     values,
     style,
     textStyle,
-    direction
+    direction,
   } = props
 
   return (
@@ -51,7 +51,7 @@ const RadioGroup = (props) => {
       onChange={onChange}
       defaultSelected={defaultSelected}
       renderOption={CustomOption}
-      direction={direction ? direction : 'row'}
+      direction={direction}
     >
       {options.map((text, index) => {
         const value = values ? values[index] : text
@@ -79,6 +79,11 @@ RadioGroup.propTypes = {
   ]),
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   textStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  direction: PropTypes.string,
+}
+
+RadioGroup.defaultProps = {
+  direction: 'row',
 }
 
 export default RadioGroup
