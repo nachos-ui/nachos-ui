@@ -30,15 +30,15 @@ OR
 $ yarn add nachos-ui
 ```
 
-```
+```js
 import React from 'react'
 import { View } from 'react-native'
 import { Button } from 'nachos-ui'
 
 const App = () => {
   return (
-  	<View>
-    	<Button>Button</Button>
+    <View>
+      <Button>Button</Button>
     </View>
   )
 }
