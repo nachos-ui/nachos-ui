@@ -27,7 +27,7 @@ const IndicatorExample = () => {
           <Image
             style={imageStyle}
             source={{
-              uri: 'https://facebook.github.io/react/img/logo_og.png',
+              uri: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg',
             }}
           />
         </Indicator>
