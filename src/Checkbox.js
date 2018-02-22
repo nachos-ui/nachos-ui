@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { View, TouchableOpacity, Platform } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import themeManager from './themeManager'
 
