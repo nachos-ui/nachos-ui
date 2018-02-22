@@ -31,7 +31,10 @@ const defaultStyle = (theme) => {
       alignItems: 'center',
       // NOTE: Firefox and Safari have a problem when flexbox is used for buttons
       // http://stackoverflow.com/questions/35464067/flexbox-not-working-on-button-element-in-some-browsers
-      ...(Platform.OS === 'web' ? { textAlign: 'center' } : {}),
+      
+      // Looks like Firefox fixed it.
+      //
+      //...(Platform.OS === 'web' ? { textAlign: 'center' } : {}),
     },
     kind: {
       circle: {
