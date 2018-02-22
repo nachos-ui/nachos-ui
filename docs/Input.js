@@ -6,7 +6,7 @@ import H4 from '../src/typography/H4'
 
 // WEBPACK (InputExample)
 class InputExample extends Component {
-  state = { value: null }
+  state = { value:'' }
   render() {
     const inputStyle = { margin: 15 }
     return (
