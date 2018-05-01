@@ -6,9 +6,9 @@ import H4 from '../src/typography/H4'
 
 // WEBPACK (ButtonExample)
 const ButtonExample = () => {
-  const btnStyle = { margin: 15 }
+  const btnStyle = { margin: 3 }
   return (
-    <View>
+    <View style={{ flex: 1, flexDirection: 'column' }}>
       <H4>Example:</H4>
       <Button type='success' style={btnStyle}>Success</Button>
       <Button type='danger' style={btnStyle}>Danger</Button>
