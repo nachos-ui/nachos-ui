@@ -30,7 +30,7 @@ OR
 $ yarn add nachos-ui
 ```
 
-```
+```jsx
 import React from 'react'
 import { View } from 'react-native'
 import { Button } from 'nachos-ui'
