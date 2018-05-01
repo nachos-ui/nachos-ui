@@ -49,9 +49,11 @@ exports[`test should render correctly 1`] = `
     style={
       Array [
         Object {
+          "alignItems": "center",
           "backgroundColor": "white",
           "borderRadius": 22,
           "height": 44,
+          "justifyContent": "center",
           "left": -22,
           "position": "absolute",
           "shadowColor": "black",
@@ -73,6 +75,16 @@ exports[`test should render correctly 1`] = `
         },
         undefined,
       ]
-    } />
+    }>
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderRadius": 90,
+          "height": 72,
+          "width": 72,
+        }
+      } />
+  </View>
 </View>
 `;
