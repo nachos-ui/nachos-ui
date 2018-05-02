@@ -1,6 +1,6 @@
 ![Nachos UI](https://cldup.com/xHYkAezOnI.jpg)
 
-![Travis](https://api.travis-ci.org/avocode/nachos-ui.svg?branch=master)
+[![Build Status](https://api.travis-ci.org/avocode/nachos-ui.svg?branch=master)](https://travis-ci.org/avocode/nachos-ui)
 
 ## Intro
 
