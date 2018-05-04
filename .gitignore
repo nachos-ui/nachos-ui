@@ -55,3 +55,5 @@ fastlane/screenshots
 styleguide/
 lib/
 bundle.js
+/coverage/
+
