@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Image } from 'react-native'
 import P from './typography/P'
-import themeManager from './themeManager'
 
 const defaultTheme = {
   CARD_BORDER_RADIUS: 5,
@@ -13,9 +12,57 @@ const defaultTheme = {
   CARD_FOOTER_FONT_SIZE: 14,
 }
 
-themeManager.setSource('Card', () => defaultTheme)
+const Card = (props) => {
+  const { width, height, theme } = props
 
-const defaultStyle = (theme) => {
+  let bodyComponent
+  if (props.bodyContent) {
+    bodyComponent = props.bodyContent
+  }
+
+  let imageComponent
+  if (props.image) {
+    imageComponent = (
+      <View style={theme.imageWrapper}>
+        <Image
+          source={{ uri: props.image }}
+          style={[theme.image, props.imageStyle]}
+        />
+      </View>
+    )
+  }
+
+  let footerComponent
+  if (props.footerContent) {
+    const isString = typeof props.footerContent === 'string'
+    let { footerContent } = props
+    if (isString) {
+      footerContent = (
+        <P style={theme.footerText} numberOfLines={1}>
+          {footerContent}
+        </P>
+      )
+    }
+
+    footerComponent = (
+      <View style={[theme.footer, props.footerStyle]}>
+        {footerContent}
+      </View>
+    )
+  }
+
+  return (
+    <View style={[theme.card, { width, height }, props.style]}>
+      <View style={theme.body}>
+        {imageComponent}
+        {bodyComponent}
+      </View>
+      {footerComponent}
+    </View>
+  )
+}
+
+Card.defaultStyle = (theme = defaultTheme) => {
   return {
     card: {
       borderWidth: 1,
@@ -52,59 +99,6 @@ const defaultStyle = (theme) => {
       paddingBottom: 0,
     },
   }
-}
-
-const Card = (props) => {
-  const { width, height } = props
-
-  const theme = props.theme || themeManager.getStyle('Card')
-  const baseStyle = defaultStyle(theme)
-
-  let bodyComponent
-  if (props.bodyContent) {
-    bodyComponent = props.bodyContent
-  }
-
-  let imageComponent
-  if (props.image) {
-    imageComponent = (
-      <View style={baseStyle.imageWrapper}>
-        <Image
-          source={{ uri: props.image }}
-          style={[baseStyle.image, props.imageStyle]}
-        />
-      </View>
-    )
-  }
-
-  let footerComponent
-  if (props.footerContent) {
-    const isString = typeof props.footerContent === 'string'
-    let { footerContent } = props
-    if (isString) {
-      footerContent = (
-        <P style={baseStyle.footerText} numberOfLines={1}>
-          {footerContent}
-        </P>
-      )
-    }
-
-    footerComponent = (
-      <View style={[baseStyle.footer, props.footerStyle]}>
-        {footerContent}
-      </View>
-    )
-  }
-
-  return (
-    <View style={[baseStyle.card, { width, height }, props.style]}>
-      <View style={baseStyle.body}>
-        {imageComponent}
-        {bodyComponent}
-      </View>
-      {footerComponent}
-    </View>
-  )
 }
 
 Card.propTypes = {

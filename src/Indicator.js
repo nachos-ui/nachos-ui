@@ -11,24 +11,22 @@ const defaultTheme = {
   INDICATOR_NORMAL_COLOR: '#2f8cff',
 }
 
-themeManager.setSource('Indicator', () => defaultTheme)
-
-const defaultStyle = (theme) => {
-  return {
-    base: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-    },
-    types: {
-      success: theme.INDICATOR_SUCCESS_COLOR,
-      warning: theme.INDICATOR_WARNING_COLOR,
-      normal: theme.INDICATOR_NORMAL_COLOR,
-    },
-  }
-}
 
 class Indicator extends Component {
+  static defaultStyle = (theme = defaultTheme) => {
+    return {
+      base: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+      },
+      types: {
+        success: theme.INDICATOR_SUCCESS_COLOR,
+        warning: theme.INDICATOR_WARNING_COLOR,
+        normal: theme.INDICATOR_NORMAL_COLOR,
+      },
+    }
+  }
   static propTypes = {
     color: PropTypes.string,
     children: PropTypes.node,

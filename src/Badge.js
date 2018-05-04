@@ -12,26 +12,6 @@ const defaultTheme = {
   BADGE_FONT_SIZE: 12,
 }
 
-themeManager.setSource('Badge', () => defaultTheme)
-
-const defaultStyle = (theme) => {
-  return {
-    container: {
-      flexDirection: 'row',
-    },
-    base: {
-      padding: theme.BADGE_PADDING_HORIZONTAL,
-      paddingVertical: theme.BADGE_PADDING_VERTICAL,
-      backgroundColor: theme.BADGE_BACKGROUND,
-      borderRadius: theme.BADGE_BORDER_RADIUS,
-    },
-    text: {
-      fontSize: theme.BADGE_FONT_SIZE,
-      color: theme.BADGE_FONT_COLOR,
-    },
-  }
-}
-
 const Badge = (props) => {
   const {
     color,
@@ -58,6 +38,24 @@ const Badge = (props) => {
       </View>
     </View>
   )
+}
+
+Badge.defaultStyle = (theme = defaultTheme) => {
+  return {
+    container: {
+      flexDirection: 'row',
+    },
+    base: {
+      padding: theme.BADGE_PADDING_HORIZONTAL,
+      paddingVertical: theme.BADGE_PADDING_VERTICAL,
+      backgroundColor: theme.BADGE_BACKGROUND,
+      borderRadius: theme.BADGE_BORDER_RADIUS,
+    },
+    text: {
+      fontSize: theme.BADGE_FONT_SIZE,
+      color: theme.BADGE_FONT_COLOR,
+    },
+  }
 }
 
 Badge.propTypes = {

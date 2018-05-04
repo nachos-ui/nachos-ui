@@ -3,50 +3,53 @@ import PropTypes from 'prop-types'
 import { View, PanResponder, Platform } from 'react-native'
 import Progress from './Progress'
 
-const FINGER_SIZE = 72;
-
-const theme = {
-  base: {
-    position: 'relative',
-    marginVertical: 25,
-  },
-  finger: {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    borderRadius: 90,
-    width: FINGER_SIZE,
-    height: FINGER_SIZE,
-  },
-  knob: {
-    position: 'absolute',
-    top: -22 + 2,
-    left: -22,
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: 'white',
-    shadowColor: 'black',
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 2 },
-    alignItems: "center",
-    justifyContent: "center",
-
-    // NOTE: for web
-    ...(Platform.OS === 'web'
-      ? {
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.25)',
-      }
-      : {}),
-    ...(Platform.OS === 'android'
-      ? {
-          // NOTE: for android
-        elevation: 1,
-      }
-      : {}),
-  },
+const defaultTheme = {
+  FINGER_SIZE: 72,
 }
 
 class Slider extends Component {
+  static defaultStyle = (theme = defaultTheme) => {
+    return {
+      base: {
+        position: 'relative',
+        marginVertical: 25,
+      },
+      finger: {
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        borderRadius: 90,
+        width: theme.FINGER_SIZE,
+        height: theme.FINGER_SIZE,
+      },
+      knob: {
+        position: 'absolute',
+        top: -22 + 2,
+        left: -22,
+        width: 44,
+        height: 44,
+        borderRadius: 22,
+        backgroundColor: 'white',
+        shadowColor: 'black',
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        shadowOffset: { width: 0, height: 2 },
+        alignItems: "center",
+        justifyContent: "center",
+  
+        // NOTE: for web
+        ...(Platform.OS === 'web'
+          ? {
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.25)',
+          }
+          : {}),
+        ...(Platform.OS === 'android'
+          ? {
+              // NOTE: for android
+            elevation: 1,
+          }
+          : {}),
+      },
+    }
+  }
   static propTypes = {
     value: PropTypes.number,
     maxValue: PropTypes.number,
@@ -104,6 +107,7 @@ class Slider extends Component {
       knobStyle,
       width,
       height,
+      theme,
     } = this.props
 
     const progress = value / (maxValue - minValue)

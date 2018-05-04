@@ -19,52 +19,6 @@ const defaultTheme = {
   BUTTON_ACTIVE_ICON_COLOR: 'rgba(0, 0, 0, 0.5)',
 }
 
-themeManager.setSource('Button', () => defaultTheme)
-
-const defaultStyle = (theme) => {
-  return {
-    container: { flex: 1 },
-    baseBtn: {
-      justifyContent: 'center',
-      padding: 10,
-      paddingHorizontal: 20,
-    },
-    baseText: {
-      alignSelf: 'center',
-      color: theme.BUTTON_FONT_COLOR,
-      paddingHorizontal: 8,
-      fontWeight: '600',
-    },
-    innerContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    kind: {
-      rounded: {
-        btn: {
-          borderRadius: theme.BUTTON_ROUNDED_RADIUS,
-          height: theme.BUTTON_ROUNDED_HEIGHT,
-        },
-        text: {
-          fontSize: theme.BUTTON_ROUNDED_FONT_SIZE,
-          fontWeight: '600',
-        },
-      },
-      squared: {
-        btn: { height: theme.BUTTON_SQUARED_HEIGHT },
-        text: { fontSize: theme.BUTTON_SQUARED_FONT_SIZE },
-      },
-    },
-    states: {
-      success: { backgroundColor: theme.BUTTON_STATE_SUCCESS },
-      danger: { backgroundColor: theme.BUTTON_STATE_DANGER },
-      primary: { backgroundColor: theme.BUTTON_STATE_PRIMARY },
-      naked: { backgroundColor: 'transparent' },
-    },
-  }
-}
-
 const Button = (props) => {
   const {
     activeOpacity,
@@ -171,6 +125,50 @@ const Button = (props) => {
       </TouchableOpacity>
     </View>
   )
+}
+
+Button.defaultStyle = (theme = defaultTheme) => {
+  return {
+    container: { flex: 1 },
+    baseBtn: {
+      justifyContent: 'center',
+      padding: 10,
+      paddingHorizontal: 20,
+    },
+    baseText: {
+      alignSelf: 'center',
+      color: theme.BUTTON_FONT_COLOR,
+      paddingHorizontal: 8,
+      fontWeight: '600',
+    },
+    innerContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    kind: {
+      rounded: {
+        btn: {
+          borderRadius: theme.BUTTON_ROUNDED_RADIUS,
+          height: theme.BUTTON_ROUNDED_HEIGHT,
+        },
+        text: {
+          fontSize: theme.BUTTON_ROUNDED_FONT_SIZE,
+          fontWeight: '600',
+        },
+      },
+      squared: {
+        btn: { height: theme.BUTTON_SQUARED_HEIGHT },
+        text: { fontSize: theme.BUTTON_SQUARED_FONT_SIZE },
+      },
+    },
+    states: {
+      success: { backgroundColor: theme.BUTTON_STATE_SUCCESS },
+      danger: { backgroundColor: theme.BUTTON_STATE_DANGER },
+      primary: { backgroundColor: theme.BUTTON_STATE_PRIMARY },
+      naked: { backgroundColor: 'transparent' },
+    },
+  }
 }
 
 Button.propTypes = {

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text } from 'react-native'
-import themeManager from './themeManager'
 
 const defaultTheme = {
   BUBBLE_BACKGROUND: '#2f8cff',
@@ -13,9 +12,37 @@ const defaultTheme = {
   BUBBLE_FONT_COLOR: '#fff',
 }
 
-themeManager.setSource('Bubble', () => defaultTheme)
+const Bubble = (props) => {
+  const {
+    arrowPosition,
+    style,
+    children,
+  } = props
 
-const defaultStyle = (theme) => {
+  const theme = props.theme || themeManager.getStyle('Bubble')
+  const baseStyle = defaultStyle(theme)
+  const color = props.color || theme.BUBBLE_BACKGROUND
+
+  return (
+    <View style={style}>
+      <View style={[baseStyle.base, { backgroundColor: color }]}>
+        <Text style={baseStyle.text}>
+          {children}
+        </Text>
+        <View
+          style={[
+            baseStyle.arrowContainer,
+            baseStyle.arrowPosition[arrowPosition],
+          ]}
+        >
+          <View style={baseStyle.arrow(color)[arrowPosition]} />
+        </View>
+      </View>
+    </View>
+  )
+}
+
+Bubble.defaultStyle = (theme = defaultTheme) => {
   return {
     base: {
       position: 'relative',
@@ -97,36 +124,6 @@ const defaultStyle = (theme) => {
       }
     },
   }
-}
-
-const Bubble = (props) => {
-  const {
-    arrowPosition,
-    style,
-    children,
-  } = props
-
-  const theme = props.theme || themeManager.getStyle('Bubble')
-  const baseStyle = defaultStyle(theme)
-  const color = props.color || theme.BUBBLE_BACKGROUND
-
-  return (
-    <View style={style}>
-      <View style={[baseStyle.base, { backgroundColor: color }]}>
-        <Text style={baseStyle.text}>
-          {children}
-        </Text>
-        <View
-          style={[
-            baseStyle.arrowContainer,
-            baseStyle.arrowPosition[arrowPosition],
-          ]}
-        >
-          <View style={baseStyle.arrow(color)[arrowPosition]} />
-        </View>
-      </View>
-    </View>
-  )
 }
 
 Bubble.propTypes = {

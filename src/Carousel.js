@@ -11,32 +11,30 @@ const defaultTheme = {
   CAROUSEL_INDICATOR_ACTIVE_COLOR: '#2f8cff',
 }
 
-themeManager.setSource('Carousel', () => defaultTheme)
-
-const defaultStyle = (theme) => {
-  return {
-    base: { flex: 1, position: 'relative' },
-    image: { flex: 1, resizeMode: 'cover' },
-    indicator: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 5,
-      justifyContent: 'center',
-      flexDirection: 'row',
-      backgroundColor: 'transparent',
-    },
-    indicatorItem: {
-      letterSpacing: 6,
-      color: theme.CAROUSEL_INDICATOR_COLOR,
-    },
-    indicatorActiveItem: {
-      color: theme.CAROUSEL_INDICATOR_ACTIVE_COLOR,
-    },
-  }
-}
-
 class Carousel extends Component {
+  static defaultStyle = (theme = defaultTheme) => {
+    return {
+      base: { flex: 1, position: 'relative' },
+      image: { flex: 1, resizeMode: 'cover' },
+      indicator: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 5,
+        justifyContent: 'center',
+        flexDirection: 'row',
+        backgroundColor: 'transparent',
+      },
+      indicatorItem: {
+        letterSpacing: 6,
+        color: theme.CAROUSEL_INDICATOR_COLOR,
+      },
+      indicatorActiveItem: {
+        color: theme.CAROUSEL_INDICATOR_ACTIVE_COLOR,
+      },
+    }
+  }
+  
   static propTypes = {
     hideIndicators: PropTypes.bool,
     indicatorActiveStyle: PropTypes.object,

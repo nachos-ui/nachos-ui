@@ -19,57 +19,6 @@ const defaultTheme = {
   CHECKBOX_ROUNDED_RADIUS: 5,
 }
 
-themeManager.setSource('Checkbox', () => defaultTheme)
-
-const defaultStyle = (theme) => {
-  return {
-    base: {
-      position: 'relative',
-      width: theme.CHECKBOX_SIZE,
-      height: theme.CHECKBOX_SIZE,
-      borderWidth: theme.CHECKBOX_BORDER_WIDTH,
-      justifyContent: 'center',
-      alignItems: 'center',
-      // NOTE: Firefox and Safari have a problem when flexbox is used for buttons
-      // http://stackoverflow.com/questions/35464067/flexbox-not-working-on-button-element-in-some-browsers
-      
-      // Looks like Firefox fixed it.
-      //
-      //...(Platform.OS === 'web' ? { textAlign: 'center' } : {}),
-    },
-    kind: {
-      circle: {
-        // NOTE: we cannot use '50%' as we don't know the dimensions up front
-        borderRadius: theme.CHECKBOX_CIRCLE_RADIUS,
-      },
-      rounded: {
-        borderRadius: theme.CHECKBOX_ROUNDED_RADIUS,
-      },
-    },
-    states: {
-      normal: {
-        borderColor: theme.CHECKBOX_BORDER_COLOR,
-      },
-      checkedIcon: {
-        borderColor: theme.CHECKBOX_CHECKED_BORDER_COLOR,
-        backgroundColor: theme.CHECKBOX_CHECKED_BG_COLOR,
-      },
-    },
-    check: {
-      icon: {
-        backgroundColor: 'transparent',
-        marginTop: 2,
-      },
-      circle: {
-        width: 12,
-        height: 12,
-        borderRadius: 6,
-        backgroundColor: theme.CHECKBOX_CHECK_CIRCLE_COLOR,
-      },
-    },
-  }
-}
-
 const Checkbox = (props) => {
   const {
     activeOpacity,
@@ -136,6 +85,55 @@ const Checkbox = (props) => {
       </TouchableOpacity>
     </View>
   )
+}
+
+Checkbox.defaultStyle = (theme = defaultTheme) => {
+  return {
+    base: {
+      position: 'relative',
+      width: theme.CHECKBOX_SIZE,
+      height: theme.CHECKBOX_SIZE,
+      borderWidth: theme.CHECKBOX_BORDER_WIDTH,
+      justifyContent: 'center',
+      alignItems: 'center',
+      // NOTE: Firefox and Safari have a problem when flexbox is used for buttons
+      // http://stackoverflow.com/questions/35464067/flexbox-not-working-on-button-element-in-some-browsers
+      
+      // Looks like Firefox fixed it.
+      //
+      //...(Platform.OS === 'web' ? { textAlign: 'center' } : {}),
+    },
+    kind: {
+      circle: {
+        // NOTE: we cannot use '50%' as we don't know the dimensions up front
+        borderRadius: theme.CHECKBOX_CIRCLE_RADIUS,
+      },
+      rounded: {
+        borderRadius: theme.CHECKBOX_ROUNDED_RADIUS,
+      },
+    },
+    states: {
+      normal: {
+        borderColor: theme.CHECKBOX_BORDER_COLOR,
+      },
+      checkedIcon: {
+        borderColor: theme.CHECKBOX_CHECKED_BORDER_COLOR,
+        backgroundColor: theme.CHECKBOX_CHECKED_BG_COLOR,
+      },
+    },
+    check: {
+      icon: {
+        backgroundColor: 'transparent',
+        marginTop: 2,
+      },
+      circle: {
+        width: 12,
+        height: 12,
+        borderRadius: 6,
+        backgroundColor: theme.CHECKBOX_CHECK_CIRCLE_COLOR,
+      },
+    },
+  }
 }
 
 Checkbox.propTypes = {

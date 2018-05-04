@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View } from 'react-native'
-import themeManager from './themeManager'
 
 const defaultTheme = {
   PROGRESS_BACKGROUND: '#bdc1cc',
@@ -10,37 +9,47 @@ const defaultTheme = {
   PROGRESS_WIDTH: 300,
 }
 
-themeManager.setSource('Progress', () => defaultTheme)
-
 const Progress = (props) => {
   const {
     progress,
     style,
     color,
   } = props
-  const theme = props.theme || themeManager.getStyle('Progress')
+  const theme = props.theme
   const width = props.width || theme.PROGRESS_WIDTH
   const height = props.height || theme.PROGRESS_HEIGHT
 
   const outerStyle = {
-    backgroundColor: theme.PROGRESS_BACKGROUND,
     borderRadius: height / 2,
-    overflow: 'hidden',
     ...style,
     width,
     height,
   }
+
   const innerStyle = {
     height,
     width: width * progress,
-    backgroundColor: color || theme.PROGRESS_ACTIVE_COLOR,
+    backgroundColor: color || undefined,
     borderRadius: height / 2,
   }
+
   return (
-    <View style={outerStyle}>
-      <View style={innerStyle} />
+    <View style={[outerStyle, theme.outerStyle]}>
+      <View style={[innerStyle, theme.innerStyle]} />
     </View>
   )
+}
+
+Progress.defaultStyle = (theme = defaultTheme) => {
+  return {
+    outerStyle: {
+      backgroundColor: theme.PROGRESS_BACKGROUND,
+      overflow: 'hidden',
+    },
+    innerStyle: {
+      backgroundColor: theme.PROGRESS_ACTIVE_COLOR,
+    },
+  }
 }
 
 Progress.propTypes = {

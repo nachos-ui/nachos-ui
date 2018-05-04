@@ -9,15 +9,12 @@ const defaultTheme = {
   SPINNER_DURATION: 450,
 }
 
-themeManager.setSource('Spinner', () => defaultTheme)
-
-const defaultStyle = (theme) => {
-  return {
-    base: { flexDirection: 'row' },
-  }
-}
-
 class Spinner extends Component {
+  static defaultStyle = (theme = defaultTheme) => {
+    return {
+      base: { flexDirection: 'row' },
+    }
+  }
   static propTypes = {
     duration: PropTypes.number,
     size: PropTypes.number,

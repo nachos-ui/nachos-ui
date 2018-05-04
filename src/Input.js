@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/Ionicons'
-import themeManager from './themeManager'
 
 const defaultTheme = {
   INPUT_HEIGHT: 46,
@@ -17,9 +16,63 @@ const defaultTheme = {
   INPUT_ERROR_COLOR: '#e03126',
 }
 
-themeManager.setSource('Input', () => defaultTheme)
+const Input = (props) => {
+  const { width, theme } = props
+  const height = props.height || theme.INPUT_HEIGHT
+  const statusStyle = theme[props.status]
+  const icon = props.icon || theme.iconStates[props.status]
+  const statusColor = theme.colorStates[props.status]
 
-const defaultStyle = (theme) => {
+  let IconComponent
+  if (icon) {
+    IconComponent = (
+      <Icon
+        name={icon}
+        size={theme.INPUT_ICON_SIZE}
+        color={statusColor}
+        style={[theme.icon]}
+      />
+    )
+  }
+
+  // NOTE: Clone props and then delete Component specific props so we can
+  // spread the rest
+  let { ...rest } = props
+  delete rest.editable
+  delete rest.inputStyle
+  delete rest.style
+  delete rest.disabled
+  delete rest.status
+  delete rest.icon
+  delete rest.height
+  delete rest.width
+
+  return (
+    <View
+      style={[
+        theme.base,
+        statusStyle,
+        props.style,
+        { width, height },
+        props.disabled ? theme.disabled : {},
+      ]}
+    >
+      <TextInput
+        {...rest}
+        editable={!props.disabled}
+        style={[
+          theme.base,
+          theme.input,
+          props.inputStyle,
+          { color: statusColor, width, height },
+        ]}
+      />
+      {IconComponent}
+    </View>
+  )
+}
+
+Input.defaultStyle = (theme = defaultTheme) => {
   return {
     base: { alignSelf: 'stretch', borderWidth: 1 },
     normal: {
@@ -63,64 +116,6 @@ const defaultStyle = (theme) => {
       error: theme.INPUT_ERROR_COLOR,
     },
   }
-}
-
-const Input = (props) => {
-  const { width } = props
-  const theme = props.theme || themeManager.getStyle('Input')
-  const height = props.height || theme.INPUT_HEIGHT
-  const baseStyle = defaultStyle(theme)
-  const statusStyle = baseStyle[props.status]
-  const icon = props.icon || baseStyle.iconStates[props.status]
-  const statusColor = baseStyle.colorStates[props.status]
-
-  let IconComponent
-  if (icon) {
-    IconComponent = (
-      <Icon
-        name={icon}
-        size={theme.INPUT_ICON_SIZE}
-        color={statusColor}
-        style={[baseStyle.icon]}
-      />
-    )
-  }
-
-  // NOTE: Clone props and then delete Component specific props so we can
-  // spread the rest
-  let { ...rest } = props
-  delete rest.editable
-  delete rest.inputStyle
-  delete rest.style
-  delete rest.disabled
-  delete rest.status
-  delete rest.icon
-  delete rest.height
-  delete rest.width
-
-  return (
-    <View
-      style={[
-        baseStyle.base,
-        statusStyle,
-        props.style,
-        { width, height },
-        props.disabled ? baseStyle.disabled : {},
-      ]}
-    >
-      <TextInput
-        {...rest}
-        editable={!props.disabled}
-        style={[
-          baseStyle.base,
-          baseStyle.input,
-          props.inputStyle,
-          { color: statusColor, width, height },
-        ]}
-      />
-      {IconComponent}
-    </View>
-  )
 }
 
 Input.propTypes = {

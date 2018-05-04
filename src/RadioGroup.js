@@ -5,32 +5,22 @@ import Switcher from './Switcher'
 import Radio from './Radio'
 import B from './typography/B'
 
-const defaultStyle = {
-  base: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 20,
-  },
-  baseText: {
-    marginLeft: 10,
-  },
-}
 
 const CustomOption = (
-  { selected, value, text, onChange, first, last, style, textStyle } // eslint-disable-line
+  { selected, value, text, onChange, first, last, style, textStyle, theme } // eslint-disable-line
 ) => {
   return (
     <TouchableOpacity
       onPressOut={() => onChange(value)}
       activeOpacity={0.8}
     >
-      <View style={[defaultStyle.base, style]}>
+      <View style={[theme.base, style]}>
         <Radio
           onChange={onChange}
           value={value}
           selected={selected}
         />
-        <B style={[defaultStyle.baseText, textStyle]}>{text}</B>
+        <B style={[theme.baseText, textStyle]}>{text}</B>
       </View>
     </TouchableOpacity>
   )
@@ -43,6 +33,7 @@ const RadioGroup = (props) => {
     options,
     values,
     style,
+    theme,
     textStyle,
     direction,
   } = props
@@ -61,6 +52,7 @@ const RadioGroup = (props) => {
             value={value}
             text={text}
             style={style}
+            theme={theme}
             textStyle={textStyle}
             key={value}
           />
@@ -68,6 +60,19 @@ const RadioGroup = (props) => {
       })}
     </Switcher>
   )
+}
+
+RadioGroup.defaultStyle = (theme) => {
+  return {
+    base: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginRight: 20,
+    },
+    baseText: {
+      marginLeft: 10,
+    },
+  }
 }
 
 RadioGroup.propTypes = {
@@ -78,6 +83,7 @@ RadioGroup.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  theme: PropTypes.object,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   textStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   direction: PropTypes.string,
