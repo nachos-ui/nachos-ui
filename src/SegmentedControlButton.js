@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Button from './Button'
 import themeManager from './themeManager'
 
@@ -141,8 +142,8 @@ const SegmentedControlButton = (props) => {
 
 SegmentedControlButton.propTypes = {
   value: PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string,
+    PropTypes.number,
+    PropTypes.string,
   ]),
   text: PropTypes.string,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View } from 'react-native'
 
 class Switcher extends Component {
@@ -7,8 +8,8 @@ class Switcher extends Component {
     children: PropTypes.node.isRequired,
     style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     defaultSelected: PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
+      PropTypes.string,
+      PropTypes.number,
     ]),
     onChange: PropTypes.func,
     renderOption: PropTypes.func,

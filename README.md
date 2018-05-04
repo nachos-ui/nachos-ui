@@ -1,6 +1,6 @@
 ![Nachos UI](https://cldup.com/xHYkAezOnI.jpg)
 
-![Travis](https://api.travis-ci.org/avocode/nachos-ui.svg?branch=master)
+[![Build Status](https://api.travis-ci.org/avocode/nachos-ui.svg?branch=master)](https://travis-ci.org/avocode/nachos-ui)
 
 ## Intro
 
@@ -30,14 +30,14 @@ OR
 $ yarn add nachos-ui
 ```
 
-```
+```jsx
 import React from 'react'
 import { View } from 'react-native'
 import { Button } from 'nachos-ui'
 
 const App = () => {
   return (
-  	<View>
+    <View>
     	<Button>Button</Button>
     </View>
   )

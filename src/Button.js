@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import themeManager from './themeManager'
@@ -203,8 +204,8 @@ Button.propTypes = {
   onChange: PropTypes.func,
   selected: PropTypes.bool,
   value: PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string,
+    PropTypes.number,
+    PropTypes.string,
   ]),
 }
 

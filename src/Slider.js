@@ -1,11 +1,20 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View, PanResponder, Platform } from 'react-native'
 import Progress from './Progress'
+
+const FINGER_SIZE = 72;
 
 const theme = {
   base: {
     position: 'relative',
     marginVertical: 25,
+  },
+  finger: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    borderRadius: 90,
+    width: FINGER_SIZE,
+    height: FINGER_SIZE,
   },
   knob: {
     position: 'absolute',
@@ -19,6 +28,9 @@ const theme = {
     shadowOpacity: 0.25,
     shadowRadius: 4,
     shadowOffset: { width: 0, height: 2 },
+    alignItems: "center",
+    justifyContent: "center",
+
     // NOTE: for web
     ...(Platform.OS === 'web'
       ? {
@@ -102,10 +114,12 @@ class Slider extends Component {
     return (
       <View style={[theme.base, style, { width, height }]}>
         <Progress width={width} height={height} progress={progress} />
-        <View
-          {...this._panResponder.panHandlers}
-          style={[theme.knob, knobTransform, knobStyle]}
-        />
+          <View
+            {...this._panResponder.panHandlers}
+            style={[theme.knob, knobTransform, knobStyle]}
+          >
+            <View style={theme.finger} />
+          </View>
       </View>
     )
   }

@@ -20,6 +20,7 @@ exports[`test should render correctly 1`] = `
     ]
   }>
   <TextInput
+    allowFontScaling={true}
     editable={true}
     style={
       Array [
@@ -68,6 +69,7 @@ exports[`test should render disabled 1`] = `
     ]
   }>
   <TextInput
+    allowFontScaling={true}
     editable={false}
     style={
       Array [

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { View, TouchableOpacity } from 'react-native'
 import Switcher from './Switcher'
 import Radio from './Radio'
@@ -43,6 +44,7 @@ const RadioGroup = (props) => {
     values,
     style,
     textStyle,
+    direction,
   } = props
 
   return (
@@ -50,6 +52,7 @@ const RadioGroup = (props) => {
       onChange={onChange}
       defaultSelected={defaultSelected}
       renderOption={CustomOption}
+      direction={direction}
     >
       {options.map((text, index) => {
         const value = values ? values[index] : text
@@ -72,11 +75,16 @@ RadioGroup.propTypes = {
   options: PropTypes.array.isRequired,
   values: PropTypes.array,
   defaultSelected: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
+    PropTypes.string,
+    PropTypes.number,
   ]),
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   textStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  direction: PropTypes.string,
+}
+
+RadioGroup.defaultProps = {
+  direction: 'row',
 }
 
 export default RadioGroup
