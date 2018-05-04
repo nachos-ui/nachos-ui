@@ -34,11 +34,13 @@
   "jest": {
     "preset": "react-native"
   },
+  "peerDependencies": {
+    "react": ">=15.0.0",
+    "react-native": ">=0.40.0"
+  },
   "dependencies": {
     "md5": "^2.2.1",
     "query-string": "^4.3.1",
-    "react": "15.x.x",
-    "react-native": ">=0.40.0",
     "react-native-vector-icons": "^4.0.0",
     "react-theme": "^0.1.4"
   },
@@ -74,6 +76,7 @@
     "react": "15.x.x",
     "react-addons-test-utils": "15.x.x",
     "react-dom": "15.x.x",
+    "react-native": ">=0.40.0",
     "react-native-mock": "^0.2.9",
     "react-native-web": "^0.0.68",
     "react-test-renderer": "^15.4.2",
