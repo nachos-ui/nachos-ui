@@ -32,16 +32,18 @@
     "test:watch": "jest --watch"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupTestFrameworkScriptFile": "<rootDir>/scripts/enzyme_setup.js"
   },
   "peerDependencies": {
-    "react": ">=15.0.0",
-    "react-native": ">=0.40.0"
+    "react": ">=16.3.1",
+    "react-native": ">=0.55.0"
   },
   "dependencies": {
     "md5": "^2.2.1",
+    "prop-types": "^15.6.1",
     "query-string": "^4.3.1",
-    "react-native-vector-icons": "^4.0.0",
+    "react-native-vector-icons": "^4.6.0",
     "react-theme": "^0.1.4"
   },
   "devDependencies": {
@@ -57,7 +59,8 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
-    "enzyme": "^2.7.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -73,13 +76,12 @@
     "json-loader": "^0.5.4",
     "prettier": "^0.14.1",
     "raw-loader": "^0.5.1",
-    "react": "15.x.x",
-    "react-addons-test-utils": "15.x.x",
-    "react-dom": "15.x.x",
-    "react-native": ">=0.40.0",
-    "react-native-mock": "^0.2.9",
-    "react-native-web": "^0.0.68",
-    "react-test-renderer": "^15.4.2",
+    "react": "16.3.1",
+    "react-dom": "16.3.1",
+    "react-native": ">=0.55.0",
+    "react-native-mock": "^0.3.1",
+    "react-native-web": "^0.6.1",
+    "react-test-renderer": "^16.3.1",
     "rsg-alt": "^3.15.0",
     "string-replace-webpack-plugin": "^0.0.5",
     "url-loader": "^0.5.7",

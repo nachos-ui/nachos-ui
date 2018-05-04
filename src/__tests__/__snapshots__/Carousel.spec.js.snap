@@ -13,7 +13,18 @@ exports[`test should hide indicators 1`] = `
       undefined,
     ]
   }>
-  <RCTScrollView>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    bounces={false}
+    decelerationRate="fast"
+    directionalLockEnabled={true}
+    height={undefined}
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={true}
+    scrollEventThrottle={200}
+    showsHorizontalScrollIndicator={false}>
     <View>
       <Image
         source={
@@ -71,7 +82,18 @@ exports[`test should render correctly 1`] = `
       undefined,
     ]
   }>
-  <RCTScrollView>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    bounces={false}
+    decelerationRate="fast"
+    directionalLockEnabled={true}
+    height={400}
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={true}
+    scrollEventThrottle={200}
+    showsHorizontalScrollIndicator={false}>
     <View>
       <Image
         source={
