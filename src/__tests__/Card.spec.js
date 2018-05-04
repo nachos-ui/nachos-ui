@@ -1,4 +1,4 @@
-import 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
@@ -13,8 +13,7 @@ it('should render correctly', () => {
 })
 
 it('should render custom footerContent', () => {
-  const View = require("View"); // eslint-disable-line
-  const Text = require("Text"); // eslint-disable-line
+
   const component = renderer.create(
     <Card
       footerContent={

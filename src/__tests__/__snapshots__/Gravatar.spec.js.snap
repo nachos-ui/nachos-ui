@@ -1,18 +1,17 @@
-exports[`test should render correctly 1`] = `
-<Image
-  source={
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+  style={
     Object {
-      "uri": "https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?d=retro&r=g&s=100",
+      "backgroundColor": "transparent",
+      "backgroundPosition": "center",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "cover",
+      "height": "50px",
+      "width": "50px",
     }
   }
-  style={
-    Array [
-      Object {
-        "height": 50,
-        "width": 50,
-      },
-      Object {},
-      undefined,
-    ]
-  } />
+/>
 `;

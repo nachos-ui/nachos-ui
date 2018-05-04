@@ -1,39 +1,50 @@
-exports[`test should render correctly 1`] = `
-<View
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginRight-61z16t rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
   style={
-    Array [
-      Object {
-        "marginVertical": 25,
-        "position": "relative",
-      },
-      undefined,
-      Object {
-        "height": 6,
-        "width": 300,
-      },
-    ]
-  }>
-  <View
+    Object {
+      "height": "6px",
+      "marginBottom": "25px",
+      "marginTop": "25px",
+      "width": "300px",
+    }
+  }
+>
+  <div
+    className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
     style={
       Object {
-        "backgroundColor": "#bdc1cc",
-        "borderRadius": 3,
-        "height": 6,
-        "overflow": "hidden",
-        "width": 300,
+        "backgroundColor": "rgba(189,193,204,1)",
+        "borderBottomLeftRadius": "3px",
+        "borderBottomRightRadius": "3px",
+        "borderTopLeftRadius": "3px",
+        "borderTopRightRadius": "3px",
+        "height": "6px",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "width": "300px",
       }
-    }>
-    <View
+    }
+  >
+    <div
+      className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
       style={
         Object {
-          "backgroundColor": "#2f8cff",
-          "borderRadius": 3,
-          "height": 6,
-          "width": 150,
+          "backgroundColor": "rgba(47,140,255,1)",
+          "borderBottomLeftRadius": "3px",
+          "borderBottomRightRadius": "3px",
+          "borderTopLeftRadius": "3px",
+          "borderTopRightRadius": "3px",
+          "height": "6px",
+          "width": "150px",
         }
-      } />
-  </View>
-  <View
+      }
+    />
+  </div>
+  <div
+    className="rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-zIndex-1lgpqti"
     onMoveShouldSetResponder={[Function]}
     onMoveShouldSetResponderCapture={[Function]}
     onResponderEnd={[Function]}
@@ -47,44 +58,45 @@ exports[`test should render correctly 1`] = `
     onStartShouldSetResponder={[Function]}
     onStartShouldSetResponderCapture={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "white",
-          "borderRadius": 22,
-          "height": 44,
-          "justifyContent": "center",
-          "left": -22,
-          "position": "absolute",
-          "shadowColor": "black",
-          "shadowOffset": Object {
-            "height": 2,
-            "width": 0,
-          },
-          "shadowOpacity": 0.25,
-          "shadowRadius": 4,
-          "top": -20,
-          "width": 44,
-        },
-        Object {
-          "transform": Array [
-            Object {
-              "translateX": 150,
-            },
-          ],
-        },
-        undefined,
-      ]
-    }>
-    <View
+      Object {
+        "WebkitAlignItems": "center",
+        "WebkitBoxAlign": "center",
+        "WebkitBoxPack": "center",
+        "WebkitJustifyContent": "center",
+        "WebkitTransform": "translateX(150px)",
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderBottomLeftRadius": "22px",
+        "borderBottomRightRadius": "22px",
+        "borderTopLeftRadius": "22px",
+        "borderTopRightRadius": "22px",
+        "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.25), 0px 2px 4px rgba(0,0,0,0.25)",
+        "height": "44px",
+        "justifyContent": "center",
+        "left": "-22px",
+        "msFlexAlign": "center",
+        "msFlexPack": "center",
+        "position": "absolute",
+        "top": "-20px",
+        "transform": "translateX(150px)",
+        "width": "44px",
+      }
+    }
+  >
+    <div
+      className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0)",
-          "borderRadius": 90,
-          "height": 72,
-          "width": 72,
+          "borderBottomLeftRadius": "90px",
+          "borderBottomRightRadius": "90px",
+          "borderTopLeftRadius": "90px",
+          "borderTopRightRadius": "90px",
+          "height": "72px",
+          "width": "72px",
         }
-      } />
-  </View>
-</View>
+      }
+    />
+  </div>
+</div>
 `;

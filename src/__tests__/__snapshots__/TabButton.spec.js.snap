@@ -1,102 +1,109 @@
-exports[`test should render correctly 1`] = `
-<View
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
   style={
-    Array [
-      Object {
-        "flex": 1,
-      },
-      Object {},
-    ]
-  }>
-  <View
-    accessibilityComponentType="button"
-    accessibilityLabel={undefined}
-    accessibilityTraits="button"
-    accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
+    Object {
+      "WebkitFlex": 1,
+      "WebkitFlexGrow": "1 !important",
+      "WebkitFlexShrink": "1 !important",
+      "flex": 1,
+      "flexGrow": "1 !important",
+      "flexShrink": "1 !important",
+      "msFlex": 1,
+      "msFlexNegative": "1 !important",
+      "msFlexPositive": "1 !important",
+    }
+  }
+>
+  <div
+    className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-boxSizing-deolkf rn-cursor-1loqt21 rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-touchAction-1otgn73 rn-transitionDuration-eafdt9 rn-transitionProperty-1i6wzkk rn-userSelect-lrvibr rn-zIndex-1lgpqti"
+    disabled={false}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onKeyUp={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
     onResponderTerminate={[Function]}
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
+    role="button"
     style={
       Object {
-        "backgroundColor": "#fff",
-        "borderColor": "#ddd",
-        "borderWidth": 1,
-        "height": 50,
+        "WebkitBoxPack": "center",
+        "WebkitJustifyContent": "center",
+        "backgroundColor": "rgba(255,255,255,1)",
+        "borderBottomColor": "rgba(221,221,221,1)",
+        "borderBottomWidth": "1px",
+        "borderLeftColor": "rgba(221,221,221,1)",
+        "borderLeftWidth": "1px",
+        "borderRightColor": "rgba(221,221,221,1)",
+        "borderRightWidth": "1px",
+        "borderTopColor": "rgba(221,221,221,1)",
+        "borderTopWidth": "1px",
+        "height": "50px",
         "justifyContent": "center",
-        "opacity": 1,
-        "padding": 0,
-        "paddingHorizontal": 0,
+        "msFlexPack": "center",
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}>
-    <View
+    tabIndex="0"
+  >
+    <div
+      className="rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
       style={
         Object {
+          "WebkitAlignItems": "center",
+          "WebkitBoxAlign": "center",
+          "WebkitBoxDirection": "normal",
+          "WebkitBoxOrient": "horizontal",
+          "WebkitBoxPack": "center",
+          "WebkitFlexDirection": "row",
+          "WebkitJustifyContent": "center",
           "alignItems": "center",
           "flexDirection": "row",
           "justifyContent": "center",
+          "msFlexAlign": "center",
+          "msFlexDirection": "row",
+          "msFlexPack": "center",
         }
-      }>
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
+      }
+    >
+      <div
+        className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-fontVariant-ebii48 rn-lineHeight-t9a87b rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+        dir="auto"
         style={
-          Array [
-            Object {
-              "color": "#bdc1cc",
-              "fontSize": 20,
-            },
-            undefined,
-            Object {
-              "fontFamily": "Ionicons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }>
+          Object {
+            "color": "rgba(189,193,204,1)",
+            "fontFamily": "Ionicons",
+            "fontSize": "20px",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          }
+        }
+      >
         
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+      </div>
+      <div
+        className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-fontFamily-14xgk7a rn-fontStyle-o11vmf rn-fontVariant-ebii48 rn-lineHeight-t9a87b rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingBottom-1mdbw0j rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+        dir="auto"
         style={
-          Array [
-            Object {
-              "alignSelf": "center",
-              "color": "#fff",
-              "fontWeight": "600",
-              "paddingHorizontal": 8,
-            },
-            Object {
-              "fontSize": 12,
-            },
-            Array [
-              Object {
-                "color": "#bdc1cc",
-                "fontSize": 12,
-                "fontWeight": "500",
-              },
-              Object {},
-              undefined,
-            ],
-            Object {},
-          ]
-        }>
+          Object {
+            "WebkitAlignSelf": "center",
+            "alignSelf": "center",
+            "color": "rgba(189,193,204,1)",
+            "fontSize": "12px",
+            "fontWeight": "500",
+            "msFlexItemAlign": "center",
+            "paddingLeft": "8px",
+            "paddingRight": "8px",
+          }
+        }
+      >
         WINE
-      </Text>
-    </View>
-  </View>
-</View>
+      </div>
+    </div>
+  </div>
+</div>
 `;

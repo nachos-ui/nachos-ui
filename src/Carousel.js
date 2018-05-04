@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Image, ScrollView, View, Text } from 'react-native'
+import { Image, ScrollView, View, Text, Platform } from 'react-native'
 import themeManager from './themeManager'
 
 const defaultTheme = {
@@ -157,6 +157,10 @@ class Carousel extends Component {
         style={[baseStyle.base, { width, height }, this.props.style]}
       >
         <ScrollView
+          bounces={Platform.OS === 'ios' ? false : undefined}
+          decelerationRate={Platform.OS === 'ios' ? 'fast' : undefined}
+          automaticallyAdjustContentInsets={Platform.OS === 'ios' ? false : undefined}
+
           ref={(scrollView) => {
             this._scrollView = scrollView
           }}
