@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { View, Image } from 'react-native'
 import P from './typography/P'
 import themeManager from './themeManager'
@@ -117,8 +118,8 @@ Card.propTypes = {
     PropTypes.array,
   ]),
   footerContent: PropTypes.oneOfType([
-    React.PropTypes.node,
-    React.PropTypes.string,
+    PropTypes.node,
+    PropTypes.string,
   ]),
   footerStyle: PropTypes.oneOfType([
     PropTypes.object,

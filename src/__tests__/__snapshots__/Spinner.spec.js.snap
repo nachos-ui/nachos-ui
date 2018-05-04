@@ -6,6 +6,7 @@ exports[`test should render correctly 1`] = `
     }
   }>
   <View
+    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "#2f8cff",
@@ -20,6 +21,7 @@ exports[`test should render correctly 1`] = `
       }
     } />
   <View
+    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "#2f8cff",
@@ -34,6 +36,7 @@ exports[`test should render correctly 1`] = `
       }
     } />
   <View
+    collapsable={undefined}
     style={
       Object {
         "backgroundColor": "#2f8cff",

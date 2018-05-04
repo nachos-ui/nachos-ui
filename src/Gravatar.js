@@ -1,6 +1,7 @@
 // NOTE: a slightly modified version of https://github.com/KyleAMathews/react-gravatar
 
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Image, PixelRatio } from 'react-native'
 import md5 from 'md5'
 import querystring from 'query-string'
