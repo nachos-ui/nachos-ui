@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View } from 'react-native'
 
 import Badge from './Badge'
-import themeManager from './themeManager'
+import { withTheme } from './Theme'
 
 const defaultTheme = {
   INDICATOR_SUCCESS_COLOR: '#66bd2b',
@@ -71,16 +71,14 @@ class Indicator extends Component {
       style,
       type,
       value,
+      theme,
     } = this.props
 
-    const theme = this.props.theme ||
-      themeManager.getStyle('Indicator')
-    const baseStyle = defaultStyle(theme)
     const clonnedChildren = React.cloneElement(children, {
       onLayout: this._handleSizeOfChild,
     })
 
-    const badgeColor = color || baseStyle.types[type]
+    const badgeColor = color || theme.types[type]
 
     const NEGATIVE_OFFSET = -18
     const NEGATIVE_POSITION_OFFSET = -10
@@ -110,7 +108,7 @@ class Indicator extends Component {
     return (
       <View style={style}>
         {clonnedChildren}
-        <View style={baseStyle.base}>
+        <View style={theme.base}>
           <Badge
             color={badgeColor}
             value={value}
@@ -122,4 +120,4 @@ class Indicator extends Component {
   }
 }
 
-export default Indicator
+export default withTheme('Indicator', Indicator)

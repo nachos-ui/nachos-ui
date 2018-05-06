@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/Ionicons'
-import themeManager from './themeManager'
+import { withTheme } from './Theme'
 
 const defaultTheme = {
   CHECKBOX_SIZE: 26,
@@ -34,10 +34,9 @@ const Checkbox = (props) => {
     value,
     selected,
     onChange,
+    theme,
   } = props
 
-  const theme = props.theme || themeManager.getStyle('Checkbox')
-  const baseStyle = defaultStyle(theme)
 
   // NOTE: function onChange is injected by the Switcher component
   const switcherProp = onChange &&
@@ -50,25 +49,25 @@ const Checkbox = (props) => {
 
   let CheckComponent
   if (isChecked) {
-    CheckComponent = <View style={[baseStyle.check.circle]} />
+    CheckComponent = <View style={[theme.check.circle]} />
     if (checkType === 'icon') {
       CheckComponent = (
         <Icon
-          name={iconName || theme.CHECKBOX_CHECK_ICON_NAME}
-          size={theme.CHECKBOX_CHECK_ICON_SIZE}
-          color={theme.CHECKBOX_CHECK_ICON_COLOR}
-          style={baseStyle.check.icon}
+          name={iconName || theme.settings.CHECKBOX_CHECK_ICON_NAME}
+          size={theme.settings.CHECKBOX_CHECK_ICON_SIZE}
+          color={theme.settings.CHECKBOX_CHECK_ICON_COLOR}
+          style={theme.check.icon}
         />
       )
     }
   }
 
   const checkboxStyle = [
-    baseStyle.base,
-    baseStyle.kind[kind],
+    theme.base,
+    theme.kind[kind],
     isChecked && checkType === 'icon'
-      ? baseStyle.states.checkedIcon
-      : baseStyle.states.normal,
+      ? theme.states.checkedIcon
+      : theme.states.normal,
     style,
   ]
 
@@ -89,6 +88,11 @@ const Checkbox = (props) => {
 
 Checkbox.defaultStyle = (theme = defaultTheme) => {
   return {
+    settings: {
+      CHECKBOX_CHECK_ICON_NAME: theme.CHECKBOX_CHECK_ICON_NAME,
+      CHECKBOX_CHECK_ICON_SIZE: theme.CHECKBOX_CHECK_ICON_SIZE,
+      CHECKBOX_CHECK_ICON_COLOR: theme.CHECKBOX_CHECK_ICON_COLOR,
+    },
     base: {
       position: 'relative',
       width: theme.CHECKBOX_SIZE,
@@ -96,12 +100,6 @@ Checkbox.defaultStyle = (theme = defaultTheme) => {
       borderWidth: theme.CHECKBOX_BORDER_WIDTH,
       justifyContent: 'center',
       alignItems: 'center',
-      // NOTE: Firefox and Safari have a problem when flexbox is used for buttons
-      // http://stackoverflow.com/questions/35464067/flexbox-not-working-on-button-element-in-some-browsers
-      
-      // Looks like Firefox fixed it.
-      //
-      //...(Platform.OS === 'web' ? { textAlign: 'center' } : {}),
     },
     kind: {
       circle: {
@@ -166,4 +164,4 @@ Checkbox.defaultProps = {
   checkType: 'icon',
 }
 
-export default Checkbox
+export default withTheme('Checkbox', Checkbox)

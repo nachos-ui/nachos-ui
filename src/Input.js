@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/Ionicons'
+import { withTheme } from './Theme'
 
 const defaultTheme = {
   INPUT_HEIGHT: 46,
@@ -17,11 +18,15 @@ const defaultTheme = {
 }
 
 const Input = (props) => {
-  const { width, theme } = props
-  const height = props.height || theme.INPUT_HEIGHT
-  const statusStyle = theme[props.status]
-  const icon = props.icon || theme.iconStates[props.status]
-  const statusColor = theme.colorStates[props.status]
+  const {
+    theme,
+    width,
+    status,
+    style,
+    disabled,
+    icon = theme.INPUT_HEIGHT,
+    height = theme.INPUT_HEIGHT,
+  } = props
 
   let IconComponent
   if (icon) {
@@ -29,7 +34,7 @@ const Input = (props) => {
       <Icon
         name={icon}
         size={theme.INPUT_ICON_SIZE}
-        color={statusColor}
+        color={theme.colorStates[status]}
         style={[theme.icon]}
       />
     )
@@ -51,20 +56,20 @@ const Input = (props) => {
     <View
       style={[
         theme.base,
-        statusStyle,
-        props.style,
+        theme[status],
+        style,
         { width, height },
-        props.disabled ? theme.disabled : {},
+        disabled ? theme.disabled : {},
       ]}
     >
       <TextInput
         {...rest}
-        editable={!props.disabled}
+        editable={!disabled}
         style={[
           theme.base,
           theme.input,
           props.inputStyle,
-          { color: statusColor, width, height },
+          { color: theme.colorStates[status], width, height },
         ]}
       />
       {IconComponent}
@@ -139,4 +144,4 @@ Input.defaultProps = {
   status: 'normal',
 }
 
-export default Input
+export default withTheme('Input', Input)

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/dist/Ionicons'
-import themeManager from './themeManager'
+import { withTheme } from './Theme'
 
 const defaultTheme = {
   BUTTON_FONT_COLOR: '#fff',
@@ -40,14 +40,12 @@ const Button = (props) => {
     onPressIn,
     onPressOut,
     onLongPress,
+    theme,
     // NOTE: injected by a Switcher
     selected,
     onChange,
     value,
   } = props
-
-  const theme = props.theme || themeManager.getStyle('Button')
-  const baseStyle = defaultStyle(theme)
 
   // NOTE: function onChange is injected by the Switcher component
   const switcherProp = onChange &&
@@ -64,15 +62,15 @@ const Button = (props) => {
   }
 
   const btnStyles = [
-    baseStyle.baseBtn,
-    baseStyle.kind[kind].btn,
-    baseStyle.states[type],
+    theme.baseBtn,
+    theme.kind[kind].btn,
+    theme.states[type],
     style,
   ]
 
   const textStyles = [
-    baseStyle.baseText,
-    baseStyle.kind[kind].text,
+    theme.baseText,
+    theme.kind[kind].text,
     textStyle,
     disabled ? disabledTextStyle : {},
   ]
@@ -106,7 +104,7 @@ const Button = (props) => {
 
   return (
     <View
-      style={[baseStyle.container, disabled ? disabledStyle : {}]}
+      style={[theme.container, disabled ? disabledStyle : {}]}
     >
       <TouchableOpacity
         {...touchableProps}
@@ -117,7 +115,7 @@ const Button = (props) => {
         accessibilityTraits='button'
         accessibilityComponentType='button'
       >
-        <View style={baseStyle.innerContainer}>
+        <View style={theme.innerContainer}>
           {leftIcon}
           {content}
           {rightIcon}
@@ -221,4 +219,4 @@ Button.defaultProps = {
   uppercase: true,
 }
 
-export default Button
+export default withTheme('Button', Button)

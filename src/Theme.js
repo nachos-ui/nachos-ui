@@ -7,7 +7,7 @@ export const ThemeContext = React.createContext({
 })
 
 export class Provider extends React.Component {
-  state = {};  
+  state = {}
   getDerivedStateFromProps(nextProps, prevState) {
     if (JSON.stringify(nextProps.theme) !== JSON.stringify(prevState)) {
       return this.createTheme(nextProps.theme)

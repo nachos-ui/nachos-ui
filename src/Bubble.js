@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text } from 'react-native'
+import { withTheme } from './Theme'
 
 const defaultTheme = {
   BUBBLE_BACKGROUND: '#2f8cff',
@@ -17,25 +18,24 @@ const Bubble = (props) => {
     arrowPosition,
     style,
     children,
+    theme,
   } = props
 
-  const theme = props.theme || themeManager.getStyle('Bubble')
-  const baseStyle = defaultStyle(theme)
   const color = props.color || theme.BUBBLE_BACKGROUND
 
   return (
     <View style={style}>
-      <View style={[baseStyle.base, { backgroundColor: color }]}>
-        <Text style={baseStyle.text}>
+      <View style={[theme.base, { backgroundColor: color }]}>
+        <Text style={theme.text}>
           {children}
         </Text>
         <View
           style={[
-            baseStyle.arrowContainer,
-            baseStyle.arrowPosition[arrowPosition],
+            theme.arrowContainer,
+            theme.arrowPosition[arrowPosition],
           ]}
         >
-          <View style={baseStyle.arrow(color)[arrowPosition]} />
+          <View style={theme.arrow(color)[arrowPosition]} />
         </View>
       </View>
     </View>
@@ -138,4 +138,4 @@ Bubble.defaultProps = {
   arrowPosition: 'left',
 }
 
-export default Bubble
+export default withTheme('bubble', Bubble)

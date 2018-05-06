@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Text, View } from 'react-native'
-import themeManager from './themeManager'
+import { withTheme } from './Theme'
 
 const defaultTheme = {
   BADGE_BACKGROUND: '#444',
@@ -18,21 +18,19 @@ const Badge = (props) => {
     style,
     textStyle,
     value,
+    theme,
   } = props
 
-  const theme = props.theme || themeManager.getStyle('Badge')
-  const baseStyle = defaultStyle(theme)
-
   return (
-    <View style={baseStyle.container}>
+    <View style={theme.container}>
       <View
         style={[
-          baseStyle.base,
+          theme.base,
           color ? { backgroundColor: color } : {},
           style,
         ]}
       >
-        <Text style={[baseStyle.text, textStyle]}>
+        <Text style={[theme.text, textStyle]}>
           {value}
         </Text>
       </View>
@@ -69,4 +67,4 @@ Badge.propTypes = {
   theme: PropTypes.object,
 }
 
-export default Badge
+export default withTheme('Badge', Badge)

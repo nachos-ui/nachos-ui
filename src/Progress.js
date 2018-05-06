@@ -11,13 +11,13 @@ const defaultTheme = {
 
 const Progress = (props) => {
   const {
+    theme,
     progress,
     style,
     color,
+    width = theme.PROGRESS_WIDTH,
+    height = theme.PROGRESS_HEIGHT,
   } = props
-  const theme = props.theme
-  const width = props.width || theme.PROGRESS_WIDTH
-  const height = props.height || theme.PROGRESS_HEIGHT
 
   const outerStyle = {
     borderRadius: height / 2,
@@ -34,8 +34,8 @@ const Progress = (props) => {
   }
 
   return (
-    <View style={[outerStyle, theme.outerStyle]}>
-      <View style={[innerStyle, theme.innerStyle]} />
+    <View style={[theme.outerStyle, outerStyle]}>
+      <View style={[theme.innerStyle, innerStyle]} />
     </View>
   )
 }

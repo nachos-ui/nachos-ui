@@ -6,6 +6,7 @@ class Switcher extends Component {
   static propTypes = {
     direction: PropTypes.oneOf(['row', 'column']),
     children: PropTypes.node.isRequired,
+    theme: PropTypes.object,
     style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     defaultSelected: PropTypes.oneOfType([
       PropTypes.string,
@@ -46,12 +47,13 @@ class Switcher extends Component {
   }
 
   render() {
-    const { direction, style, children, renderOption } = this.props
+    const { direction, style, children, renderOption, theme } = this.props
 
     return (
       <View style={[style, { flexDirection: direction }]}>
         {children.map((child, index) => {
           const addedProps = {
+            theme,
             onChange: this._handleChange.bind(this, index),
             key: index,
             direction,

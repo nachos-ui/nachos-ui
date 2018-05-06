@@ -88,9 +88,8 @@ class Spinner extends Component {
   }
 
   render() {
-    const theme = this.props.theme ||
-      themeManager.getStyle('Spinner')
-    const baseStyle = defaultStyle(theme)
+    const theme = this.props.theme
+
     const spinnerItem = {
       width: this.props.size || theme.SPINNER_SIZE,
       height: this.props.size || theme.SPINNER_SIZE,
@@ -102,7 +101,7 @@ class Spinner extends Component {
     const thirdScale = this._interpolate(this.thirdAnimatedValue)
 
     return (
-      <View style={baseStyle.base}>
+      <View style={theme.base}>
         <Animated.View
           style={[
             spinnerItem,

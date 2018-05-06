@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Image } from 'react-native'
 import P from './typography/P'
+import { withTheme } from './Theme'
 
 const defaultTheme = {
   CARD_BORDER_RADIUS: 5,
@@ -122,4 +123,4 @@ Card.propTypes = {
   theme: PropTypes.object,
 }
 
-export default Card
+export default withTheme('Card', Card)

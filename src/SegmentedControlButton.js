@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
-import themeManager from './themeManager'
 
 const defaultTheme = {
   BUTTON_BORDER_COLOR: '#ddd',
@@ -33,11 +32,8 @@ const SegmentedControlButton = (props) => {
     last,
     selected,
     onChange,
+    theme,
   } = props
-
-  const theme = props.theme ||
-    themeManager.getStyle('SegmentedControlButton')
-  const baseStyle = defaultStyle(theme)
 
   // NOTE: function onChange is injected by the Switcher component
   const switcherProp = onChange &&
@@ -62,23 +58,23 @@ const SegmentedControlButton = (props) => {
 
   return (
     <Button
-      iconColor={theme.BUTTON_ICON_COLOR}
-      iconActiveColor={theme.BUTTON_ACTIVE_ICON_COLOR}
-      iconSize={theme.BUTTON_ICON_SIZE}
-      iconPosition={theme.BUTTON_ICON_POSITION}
+      iconColor={theme.settings.BUTTON_ICON_COLOR}
+      iconActiveColor={theme.settings.BUTTON_ACTIVE_ICON_COLOR}
+      iconSize={theme.settings.BUTTON_ICON_SIZE}
+      iconPosition={theme.settings.BUTTON_ICON_POSITION}
       kind='squared'
       {...rest}
       {...switcherProp}
       style={[
-        baseStyle.base,
-        first ? baseStyle.first[direction] : {},
-        last ? baseStyle.last[direction] : {},
-        selected ? baseStyle.states.selected : {},
+        theme.base,
+        first ? theme.first[direction] : {},
+        last ? theme.last[direction] : {},
+        selected ? theme.states.selected : {},
         style,
       ]}
       textStyle={[
-        baseStyle.baseText,
-        selected ? baseStyle.states.selectedText : {},
+        theme.baseText,
+        selected ? theme.states.selectedText : {},
         textStyle,
       ]}
     >
@@ -89,6 +85,9 @@ const SegmentedControlButton = (props) => {
 
 SegmentedControlButton.defaultStyle = (theme = defaultTheme) => {
   return {
+    settings: {
+      ...defaultTheme,
+    },
     base: {
       height: theme.BUTTON_HEIGHT,
       padding: 0,

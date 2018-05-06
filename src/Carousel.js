@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Image, ScrollView, View, Text, Platform } from 'react-native'
-import themeManager from './themeManager'
+import { withTheme } from './Theme'
 
 const defaultTheme = {
-  CAROUSEL_WIDTH: 300,
-  CAROUSEL_HEIGHT: 300,
-  CAROUSEL_INDICATOR_SIZE: 24,
   CAROUSEL_INDICATOR_COLOR: '#bdc1cc',
   CAROUSEL_INDICATOR_ACTIVE_COLOR: '#2f8cff',
 }
@@ -34,7 +31,7 @@ class Carousel extends Component {
       },
     }
   }
-  
+
   static propTypes = {
     hideIndicators: PropTypes.bool,
     indicatorActiveStyle: PropTypes.object,
@@ -51,6 +48,9 @@ class Carousel extends Component {
 
   static defaultProps = {
     hideIndicators: false,
+    width: 300,
+    height: 300,
+    indicatorSize: 24,
     images: [],
     onChange: () => {},
   }
@@ -62,9 +62,7 @@ class Carousel extends Component {
       return
     }
 
-    const theme = this.props.theme ||
-      themeManager.getStyle('Carousel')
-    const baseStyle = defaultStyle(theme)
+    const theme = this.props.theme 
     const indicators = []
     let indicatorStyle = {}
     let content = this.props.children
@@ -74,16 +72,16 @@ class Carousel extends Component {
 
     content.forEach((child, index) => {
       indicatorStyle = {
-        ...baseStyle.indicatorItem,
+        ...theme.indicatorItem,
         ...this.props.indicatorStyle,
         fontSize: (
-          this.props.indicatorSize || theme.CAROUSEL_INDICATOR_SIZE
+          this.props.indicatorSize
         ),
       }
       if (this.state.activeSlide === index) {
         indicatorStyle = {
           ...indicatorStyle,
-          ...baseStyle.indicatorActiveItem,
+          ...theme.indicatorActiveItem,
           ...this.props.indicatorActiveStyle,
         }
       }
@@ -100,17 +98,14 @@ class Carousel extends Component {
     })
 
     return (
-      <View style={[baseStyle.indicator]}>
+      <View style={[theme.indicator]}>
         {indicators}
       </View>
     )
   }
 
   _onAnimationEnd = (e) => {
-    const theme = this.props.theme ||
-      themeManager.getStyle('Carousel')
-    const width = this.props.width || theme.CAROUSEL_WIDTH
-    const activeSlide = e.nativeEvent.contentOffset.x / width
+    const activeSlide = e.nativeEvent.contentOffset.x / this.props.width
     this.setState({ activeSlide })
 
     if (this.props.onChange) {
@@ -120,30 +115,23 @@ class Carousel extends Component {
 
   _indicatorPressed(activeSlide) {
     this.setState({ activeSlide })
-    const theme = this.props.theme ||
-      themeManager.getStyle('Carousel')
-    const width = this.props.width || theme.CAROUSEL_WIDTH
     if (this._scrollView) {
       this._scrollView.scrollTo({
-        x: activeSlide * width,
+        x: activeSlide * this.props.width,
       })
     }
   }
 
   render() {
-    const theme = this.props.theme ||
-      themeManager.getStyle('Carousel')
-    const width = this.props.width || theme.CAROUSEL_WIDTH
-    const height = this.props.height || theme.CAROUSEL_HEIGHT
+    const { theme, width, height, images, style } = this.props
 
-    const baseStyle = defaultStyle(theme)
     let content = this.props.children
     if (!content) {
-      content = this.props.images.map((image, index) => {
+      content = images.map((image, index) => {
         return (
           <Image
             key={index}
-            style={[baseStyle.image, { width, height }]}
+            style={[theme.image, { width, height }]}
             source={{ uri: image }}
           />
         )
@@ -152,7 +140,7 @@ class Carousel extends Component {
 
     return (
       <View
-        style={[baseStyle.base, { width, height }, this.props.style]}
+        style={[theme.base, { width, height }, style]}
       >
         <ScrollView
           bounces={Platform.OS === 'ios' ? false : undefined}
@@ -167,7 +155,7 @@ class Carousel extends Component {
           removeClippedSubviews
           showsHorizontalScrollIndicator={false}
           scrollEventThrottle={200}
-          height={this.props.height}
+          height={height}
           onMomentumScrollEnd={this._onAnimationEnd}
         >
           {content}
@@ -178,4 +166,4 @@ class Carousel extends Component {
   }
 }
 
-export default Carousel
+export default withTheme('Carousel', Carousel)

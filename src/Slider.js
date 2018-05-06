@@ -62,6 +62,7 @@ class Slider extends Component {
     width: PropTypes.number,
     height: PropTypes.number,
     onValueChange: PropTypes.func,
+    theme: PropTypes.object,
   }
 
   static defaultProps = {
@@ -118,12 +119,12 @@ class Slider extends Component {
     return (
       <View style={[theme.base, style, { width, height }]}>
         <Progress width={width} height={height} progress={progress} />
-          <View
-            {...this._panResponder.panHandlers}
-            style={[theme.knob, knobTransform, knobStyle]}
-          >
-            <View style={theme.finger} />
-          </View>
+        <View
+          {...this._panResponder.panHandlers}
+          style={[theme.knob, knobTransform, knobStyle]}
+        >
+          <View style={theme.finger} />
+        </View>
       </View>
     )
   }
