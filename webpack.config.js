@@ -22,7 +22,7 @@ const replacement = {
 module.exports = {
   devServer: { contentBase: path.join(__dirname) },
   entry: [path.join(__dirname, "index.web.js")],
-  devtool: "cheap-eval-source-map",
+  devtool: "eval-source-map",
   module: {
     loaders: [
       {

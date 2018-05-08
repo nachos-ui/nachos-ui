@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 import { withTheme } from "./Theme";
-
+import { StyleSheet } from "react-native";
 const SegmentedControlButton = props => {
   const {
     value,
@@ -17,6 +17,7 @@ const SegmentedControlButton = props => {
     onChange,
     iconSize,
     iconPosition,
+    iconColor,
     theme
   } = props;
 
@@ -42,8 +43,8 @@ const SegmentedControlButton = props => {
 
   return (
     <Button
-      iconColor={theme.baseText.color}
-      iconActiveColor={theme.states.selectedText.color}
+      iconColor={iconColor}
+      iconActiveColor={StyleSheet.flatten(theme.selectedText).color}
       iconSize={iconSize}
       iconPosition={iconPosition}
       kind="squared"
@@ -51,14 +52,14 @@ const SegmentedControlButton = props => {
       {...switcherProp}
       style={[
         theme.base,
-        first ? theme.first[direction] : {},
-        last ? theme.last[direction] : {},
-        selected ? theme.states.selected : {},
+        first ? theme[`first_${direction}`] : {},
+        last ? theme[`last_${direction}`] : {},
+        selected ? theme.selected : {},
         style
       ]}
       textStyle={[
         theme.baseText,
-        selected ? theme.states.selectedText : {},
+        selected ? theme.selectedText : {},
         textStyle
       ]}
     >
@@ -70,6 +71,7 @@ const SegmentedControlButton = props => {
 SegmentedControlButton.themeConfig = {
   settings: {
     iconSize: 20,
+    iconColor: "#bdc1cc",
     iconPosition: "left"
   },
   style: {
@@ -82,42 +84,35 @@ SegmentedControlButton.themeConfig = {
       backgroundColor: "#fff"
     },
     baseText: {
-      color: "#bdc1cc",
       fontSize: 12,
       fontWeight: "500"
     },
-    states: {
-      selected: {
-        backgroundColor: "#2f8cff",
-        borderColor: "#2f8cff"
-      },
-      selectedText: {
-        color: "#fff"
-      }
+    selected: {
+      backgroundColor: "#2f8cff",
+      borderColor: "#2f8cff"
     },
-    first: {
-      row: {
-        borderBottomLeftRadius: 0,
-        borderTopLeftRadius: 0,
-        borderRightWidth: 0
-      },
-      column: {
-        borderTopLeftRadius: 0,
-        borderTopRightRadius: 0,
-        borderBottomWidth: 0
-      }
+    selectedText: {
+      color: "#fff"
     },
-    last: {
-      row: {
-        borderBottomRightRadius: 0,
-        borderTopRightRadius: 0,
-        borderLeftWidth: 0
-      },
-      column: {
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
-        borderTopWidth: 0
-      }
+    first_row: {
+      borderBottomLeftRadius: 0,
+      borderTopLeftRadius: 0,
+      borderRightWidth: 0
+    },
+    first_column: {
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0,
+      borderBottomWidth: 0
+    },
+    last_row: {
+      borderBottomRightRadius: 0,
+      borderTopRightRadius: 0,
+      borderLeftWidth: 0
+    },
+    last_column: {
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      borderTopWidth: 0
     }
   }
 };

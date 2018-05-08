@@ -3,17 +3,18 @@ import PropTypes from "prop-types";
 import { View, TextInput } from "react-native";
 import Icon from "react-native-vector-icons/dist/Ionicons";
 import { withTheme } from "./Theme";
+import { StyleSheet } from "react-native";
 
 const Input = props => {
-  const { theme, width, status, style, disabled, icon } = props;
+  const { theme, width, status, style, disabled, icon, iconSize } = props;
 
   let IconComponent;
   if (icon) {
     IconComponent = (
       <Icon
         name={icon}
-        size={theme.settings.iconSize}
-        color={theme.colorStates[status]}
+        size={iconSize}
+        color={StyleSheet.flatten(theme[status]).color}
         style={[theme.icon]}
       />
     );
@@ -44,12 +45,7 @@ const Input = props => {
       <TextInput
         {...rest}
         editable={!disabled}
-        style={[
-          theme.base,
-          theme.input,
-          props.inputStyle,
-          { color: theme.colorStates[status], width }
-        ]}
+        style={[theme.base, theme.input, props.inputStyle, { width }]}
       />
       {IconComponent}
     </View>
@@ -65,20 +61,24 @@ Input.themeConfig = {
     normal: {
       backgroundColor: "#fff",
       borderColor: "#bdc1cc",
-      borderStyle: "solid"
+      borderStyle: "solid",
+      color: "#bdc1cc"
     },
     disabled: { opacity: 0.2 },
     valid: {
       borderColor: "#66bd2b",
-      borderStyle: "solid"
+      borderStyle: "solid",
+      color: "#66bd2b"
     },
     error: {
       borderColor: "#e03126",
-      borderStyle: "solid"
+      borderStyle: "solid",
+      color: "#e03126"
     },
     warn: {
       borderColor: "#ff8c2f",
-      borderStyle: "solid"
+      borderStyle: "solid",
+      color: "#ff8c2f"
     },
     input: {
       borderColor: "transparent",
@@ -95,12 +95,6 @@ Input.themeConfig = {
       valid: "md-checkmark",
       warn: "md-alert",
       error: "md-close"
-    },
-    colorStates: {
-      normal: "#bdc1cc",
-      valid: "#66bd2b",
-      warn: "#ff8c2f",
-      error: "#e03126"
     }
   }
 };

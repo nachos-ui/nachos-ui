@@ -14,7 +14,8 @@ const Checkbox = props => {
     style,
     disabledStyle,
     iconName,
-    checkType,
+    iconColor,
+    iconSize,
     // NOTE: injected by a Switcher
     value,
     selected,
@@ -30,40 +31,23 @@ const Checkbox = props => {
 
   const isChecked = checked || selected;
 
-  let CheckComponent;
-  if (isChecked) {
-    CheckComponent = <View style={[theme.check.circle]} />;
-    if (checkType === "icon") {
-      CheckComponent = (
-        <Icon
-          name={iconName || theme.settings.CHECKBOX_CHECK_ICON_NAME}
-          size={theme.base.width}
-          color={theme.check.icon.color || "#fff"}
-          style={theme.check.icon}
-        />
-      );
-    }
-  }
-
-  const checkboxStyle = [
-    theme.base,
-    theme.kind[kind],
-    isChecked && checkType === "icon"
-      ? theme.states.checkedIcon
-      : theme.states.normal,
-    style
-  ];
-
   return (
     <View style={disabled ? disabledStyle : {}}>
       <TouchableOpacity
         activeOpacity={activeOpacity}
         disabled={disabled}
-        style={checkboxStyle}
+        style={[theme.base, isChecked ? theme.active : {}, style]}
         onPress={() => onValueChange(!checked)}
         {...switcherProp}
       >
-        {CheckComponent}
+        {isChecked && (
+          <Icon
+            name={iconName}
+            size={iconSize}
+            color={iconColor}
+            style={theme.check}
+          />
+        )}
       </TouchableOpacity>
     </View>
   );
@@ -71,7 +55,9 @@ const Checkbox = props => {
 
 Checkbox.themeConfig = {
   settings: {
-    CHECKBOX_CHECK_ICON_NAME: "md-checkmark"
+    iconName: "md-checkmark",
+    iconColor: "#fff",
+    iconSize: 20
   },
   style: {
     base: {
@@ -80,38 +66,17 @@ Checkbox.themeConfig = {
       height: 20,
       borderWidth: 2,
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
+      borderColor: "#2f8cff",
+      borderRadius: 5
     },
-    kind: {
-      circle: {
-        // NOTE: we cannot use '50%' as we don't know the dimensions up front
-        borderRadius: 9999
-      },
-      rounded: {
-        borderRadius: 5
-      }
-    },
-    states: {
-      normal: {
-        borderColor: "#2f8cff"
-      },
-      checkedIcon: {
-        borderColor: "#2f8cff",
-        backgroundColor: "#2f8cff"
-      }
+    active: {
+      backgroundColor: "#2f8cff"
     },
     check: {
-      icon: {
-        backgroundColor: "transparent",
-        color: "#fff",
-        marginTop: 2
-      },
-      circle: {
-        width: 12,
-        height: 12,
-        borderRadius: 6,
-        backgroundColor: "#2f8cff"
-      }
+      backgroundColor: "transparent",
+      color: "#fff",
+      marginTop: 2
     }
   }
 };
@@ -119,11 +84,9 @@ Checkbox.themeConfig = {
 Checkbox.propTypes = {
   activeOpacity: PropTypes.number,
   disabled: PropTypes.bool,
-  kind: PropTypes.oneOf(["circle", "rounded"]),
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   disabledStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   checked: PropTypes.bool,
-  checkType: PropTypes.oneOf(["icon", "circle"]),
   onValueChange: PropTypes.func,
   iconName: PropTypes.string,
   theme: PropTypes.object,

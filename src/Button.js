@@ -4,34 +4,32 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/dist/Ionicons";
 import { withTheme } from "./Theme";
 
-const Button = props => {
-  const {
-    activeOpacity,
-    disabled,
-    children,
-    style,
-    textStyle,
-    disabledStyle,
-    disabledTextStyle,
-    type,
-    kind,
-    uppercase,
-    iconName,
-    iconSize,
-    iconColor,
-    iconActiveColor,
-    iconPosition,
-    onPress,
-    onPressIn,
-    onPressOut,
-    onLongPress,
-    theme,
-    // NOTE: injected by a Switcher
-    selected,
-    onChange,
-    value
-  } = props;
-
+const Button = ({
+  activeOpacity,
+  disabled,
+  children,
+  style,
+  textStyle,
+  disabledStyle,
+  disabledTextStyle,
+  type,
+  kind,
+  uppercase,
+  iconName,
+  iconSize,
+  iconColor,
+  iconActiveColor,
+  iconPosition,
+  onPress,
+  onPressIn,
+  onPressOut,
+  onLongPress,
+  theme,
+  // NOTE: injected by a Switcher
+  selected,
+  onChange,
+  value
+}) => {
   // NOTE: function onChange is injected by the Switcher component
   const switcherProp = onChange && {
     onPress: () => {},

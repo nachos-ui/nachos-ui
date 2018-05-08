@@ -31,7 +31,7 @@ Text.themeConfig = {
 Text.propTypes = {
   align: PropTypes.string,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  theme: PropTypes.object
+  theme: PropTypes.object.isRequired
 };
 
 Text.defaultProps = { align: "left" };

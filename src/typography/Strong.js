@@ -8,6 +8,7 @@ const Strong = props => {
     ...props,
     theme: props.theme.base
   };
+  console.log(textProps);
   return <Text {...textProps} />;
 };
 

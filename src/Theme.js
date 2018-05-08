@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { StyleSheet } from "react-native";
 import defaultBranding from "./branding_defaults";
+
 export const ThemeContext = React.createContext({
   theme: {}
 });
@@ -12,6 +13,7 @@ export class Provider extends React.Component {
     if (JSON.stringify(nextProps.theme) !== JSON.stringify(prevState)) {
       //return this.createTheme(nextProps.theme);
     }
+    return null;
   }
 
   themeConfigs = {};
@@ -36,7 +38,7 @@ export class Provider extends React.Component {
     });
 
     this.themeConfigs[name] = {
-      style: StyleSheet.create(themedStyles),
+      computedStyle: StyleSheet.create(themedStyles),
       props: themeConfig.settings
     };
     return this.themeConfigs[name];
@@ -102,7 +104,7 @@ export function withTheme(componentName, ThemedComponent) {
           {({ theme }) => {
             return (
               <ThemedComponent
-                theme={theme[componentName].style}
+                theme={theme[componentName].computedStyle}
                 {...theme[componentName].props || {}}
                 {...props}
               />
