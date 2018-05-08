@@ -34,6 +34,8 @@ const Input = props => {
   delete rest.icon;
   delete rest.height;
   delete rest.width;
+  delete rest.iconSize;
+  delete rest.iconStates;
 
   console.log(statusTheme);
   return (

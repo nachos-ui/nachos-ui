@@ -69,9 +69,9 @@ export function withTheme(componentName, ThemedComponent) {
           {({ theme }) => {
             return (
               <ThemedComponent
+                {...props}
                 theme={(theme[componentName] || {}).computedStyle || {}}
                 {...(theme[componentName] || {}).props || {}}
-                {...props}
               />
             );
           }}

@@ -7,13 +7,13 @@ import B from "./typography/B";
 import { withTheme } from "./Theme";
 
 const CustomOption = (
-  { selected, value, text, onChange, first, last, style, textStyle, theme } // eslint-disable-line
+  { selected, value, text, onChange, first, last, style, textStyle } // eslint-disable-line
 ) => {
   return (
     <TouchableOpacity onPressOut={() => onChange(value)} activeOpacity={0.8}>
-      <View style={[theme.base, style]}>
+      <View style={style}>
         <Radio onChange={onChange} value={value} selected={selected} />
-        <B style={[theme.baseText, textStyle]}>{text}</B>
+        <B style={textStyle}>{text}</B>
       </View>
     </TouchableOpacity>
   );
@@ -35,18 +35,17 @@ const RadioGroup = props => {
     <Switcher
       onChange={onChange}
       defaultSelected={defaultSelected}
-      renderOption={CustomOption}
       direction={direction}
     >
       {options.map((text, index) => {
         const value = values ? values[index] : text;
+
         return (
           <CustomOption
             value={value}
             text={text}
-            style={style}
-            theme={theme}
-            textStyle={textStyle}
+            style={[theme.base, style]}
+            textStyle={[theme.baseText, textStyle]}
             key={value}
           />
         );

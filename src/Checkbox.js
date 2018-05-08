@@ -89,7 +89,7 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   onValueChange: PropTypes.func,
   iconName: PropTypes.string,
-  theme: PropTypes.object,
+  theme: PropTypes.object.isRequired,
   // NOTE: injected by a Switcher
   value: PropTypes.string,
   onChange: PropTypes.func,
