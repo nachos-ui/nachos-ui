@@ -8,13 +8,16 @@ import { StyleSheet } from "react-native";
 const Input = props => {
   const { theme, width, status, style, disabled, icon, iconSize } = props;
 
+  const { color: statusColor, ...statusTheme } = StyleSheet.flatten(
+    theme[status]
+  );
   let IconComponent;
   if (icon) {
     IconComponent = (
       <Icon
-        name={icon}
+        name={icon || iconStates[status]}
         size={iconSize}
-        color={StyleSheet.flatten(theme[status]).color}
+        color={statusColor}
         style={[theme.icon]}
       />
     );
@@ -32,11 +35,12 @@ const Input = props => {
   delete rest.height;
   delete rest.width;
 
+  console.log(statusTheme);
   return (
     <View
       style={[
         theme.base,
-        theme[status],
+        statusTheme,
         style,
         { width },
         disabled ? theme.disabled : {}
@@ -54,7 +58,12 @@ const Input = props => {
 
 Input.themeConfig = {
   settings: {
-    iconSize: 20
+    iconSize: 20,
+    iconStates: {
+      valid: "md-checkmark",
+      warn: "md-alert",
+      error: "md-close"
+    }
   },
   style: {
     base: { alignSelf: "stretch", borderWidth: 1, height: 46 },
@@ -90,11 +99,6 @@ Input.themeConfig = {
       right: 12,
       position: "absolute",
       backgroundColor: "transparent"
-    },
-    iconStates: {
-      valid: "md-checkmark",
-      warn: "md-alert",
-      error: "md-close"
     }
   }
 };

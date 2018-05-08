@@ -30,7 +30,11 @@ Text.themeConfig = {
 
 Text.propTypes = {
   align: PropTypes.string,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.number
+  ]),
   theme: PropTypes.object.isRequired
 };
 

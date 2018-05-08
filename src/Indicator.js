@@ -7,20 +7,23 @@ import { withTheme } from "./Theme";
 
 class Indicator extends Component {
   static themeConfig = {
-    style: {
-      base: {
-        position: "absolute",
-        top: 0,
-        left: 0
-      },
+    settings: {
       types: {
         success: "#66bd2b",
         warning: "#ef4836",
         normal: "@primaryColor"
       }
+    },
+    style: {
+      base: {
+        position: "absolute",
+        top: 0,
+        left: 0
+      }
     }
   };
   static propTypes = {
+    types: PropTypes.object,
     color: PropTypes.string,
     children: PropTypes.node,
     position: PropTypes.oneOf([
@@ -60,7 +63,7 @@ class Indicator extends Component {
       onLayout: this._handleSizeOfChild
     });
 
-    const badgeColor = color || theme.types[type];
+    const badgeColor = color || this.props.types[type];
 
     const NEGATIVE_OFFSET = -18;
     const NEGATIVE_POSITION_OFFSET = -10;

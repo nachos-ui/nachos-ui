@@ -3,6 +3,8 @@ export default {
   accentColor: "red",
   alternateTextColor: "#fff",
 
+  linkColor: "blue",
+
   successColor: "green",
   dangerColor: "red",
   primaryColor: "blue"
