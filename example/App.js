@@ -1,24 +1,25 @@
-import React from 'react'
-import { View, ScrollView } from 'react-native'
-import H2 from '../src/typography/H2'
+import React from "react";
+import { View, ScrollView } from "react-native";
+import H2 from "../src/typography/H2";
+import { Provider } from "../src/Theme";
 
-const components = require('../docs')
+const components = require("../docs");
 
 const theme = {
   container: { paddingVertical: 30 },
   section: { marginBottom: 40 },
   componentContainer: { paddingHorizontal: 15, paddingTop: 30 },
   headline: {
-    borderBottomColor: '#ddd',
+    borderBottomColor: "#ddd",
     borderBottomWidth: 1,
-    marginHorizontal: 10,
+    marginHorizontal: 10
   },
-  h2: { paddingHorizontal: 10 },
-}
+  h2: { paddingHorizontal: 10 }
+};
 
 const Showcase = () => {
   const content = Object.keys(components).map((value, index) => {
-    const component = components[value]
+    const component = components[value];
     return (
       <View style={theme.section} key={value}>
         <View style={theme.headline}>
@@ -28,14 +29,14 @@ const Showcase = () => {
           {React.createElement(component)}
         </View>
       </View>
-    )
-  })
+    );
+  });
 
   return (
     <ScrollView contentContainerStyle={theme.container}>
-      {content}
+      <Provider>{content}</Provider>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default Showcase
+export default Showcase;

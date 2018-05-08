@@ -1,24 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Text from './Text'
-import themeManager from '../themeManager'
+import React from "react";
+import PropTypes from "prop-types";
+import Text from "./Text";
+import { withTheme } from "../Theme";
 
-const theme = {
-  ...themeManager.getStyle('Text'),
-  FONT_COLOR: '#bdc1cc',
-  FONT_WEIGHT: '500',
-}
-
-themeManager.setSource('H6', () => theme)
-
-const H6 = (props) => {
+const H6 = props => {
   const textProps = {
     ...props,
-    theme: props.theme || themeManager.getStyle('H6'),
+    theme: props.theme
+  };
+  return <Text {...textProps} />;
+};
+
+H6.themeConfig = {
+  style: {
+    base: {
+      fontSize: 14,
+      fontStyle: "normal",
+      color: "@textColor",
+      paddingVertical: 10,
+      textAlign: "left",
+      fontWeight: "500"
+    }
   }
-  return <Text {...textProps} />
-}
+};
 
-H6.propTypes = { theme: PropTypes.object }
+H6.propTypes = { theme: PropTypes.object };
 
-export default H6
+export default withTheme("H6", H6);

@@ -1,24 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Text from './Text'
-import themeManager from '../themeManager'
+import React from "react";
+import PropTypes from "prop-types";
+import Text from "./Text";
+import { withTheme } from "../Theme";
 
-const theme = {
-  ...themeManager.getStyle('Text'),
-  FONT_WEIGHT: 'bold',
-  PADDING_VERTICAL: 0,
-}
-
-themeManager.setSource('Strong', () => theme)
-
-const Strong = (props) => {
+const Strong = props => {
   const textProps = {
     ...props,
-    theme: props.theme || themeManager.getStyle('Strong'),
+    theme: props.theme.base
+  };
+  return <Text {...textProps} />;
+};
+
+Strong.themeConfig = {
+  style: {
+    base: {
+      fontSize: 14,
+      fontStyle: "normal",
+      color: "@textColor",
+      paddingVertical: 10,
+      textAlign: "left",
+      fontWeight: "bold"
+    }
   }
-  return <Text {...textProps} />
-}
+};
 
-Strong.propTypes = { theme: PropTypes.object }
+Strong.propTypes = { theme: PropTypes.object };
 
-export default Strong
+export default withTheme("Strong", Strong);

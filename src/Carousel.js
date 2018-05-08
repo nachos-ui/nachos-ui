@@ -1,36 +1,31 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Image, ScrollView, View, Text, Platform } from 'react-native'
-import { withTheme } from './Theme'
-
-const defaultTheme = {
-  CAROUSEL_INDICATOR_COLOR: '#bdc1cc',
-  CAROUSEL_INDICATOR_ACTIVE_COLOR: '#2f8cff',
-}
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Image, ScrollView, View, Text, Platform } from "react-native";
+import { withTheme } from "./Theme";
 
 class Carousel extends Component {
-  static defaultStyle = (theme = defaultTheme) => {
-    return {
-      base: { flex: 1, position: 'relative' },
-      image: { flex: 1, resizeMode: 'cover' },
+  static themeConfig = {
+    style: {
+      base: { flex: 1, position: "relative" },
+      image: { flex: 1, resizeMode: "cover" },
       indicator: {
-        position: 'absolute',
+        position: "absolute",
         left: 0,
         right: 0,
         bottom: 5,
-        justifyContent: 'center',
-        flexDirection: 'row',
-        backgroundColor: 'transparent',
+        justifyContent: "center",
+        flexDirection: "row",
+        backgroundColor: "transparent"
       },
       indicatorItem: {
         letterSpacing: 6,
-        color: theme.CAROUSEL_INDICATOR_COLOR,
+        color: "#bdc1cc"
       },
       indicatorActiveItem: {
-        color: theme.CAROUSEL_INDICATOR_ACTIVE_COLOR,
-      },
+        color: "@primaryColor"
+      }
     }
-  }
+  };
 
   static propTypes = {
     hideIndicators: PropTypes.bool,
@@ -43,8 +38,8 @@ class Carousel extends Component {
     onChange: PropTypes.func,
     children: PropTypes.node,
     style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    theme: PropTypes.object,
-  }
+    theme: PropTypes.object
+  };
 
   static defaultProps = {
     hideIndicators: false,
@@ -52,38 +47,36 @@ class Carousel extends Component {
     height: 300,
     indicatorSize: 24,
     images: [],
-    onChange: () => {},
-  }
+    onChange: () => {}
+  };
 
-  state = { activeSlide: 0 }
+  state = { activeSlide: 0 };
 
   _renderIndicator() {
     if (this.props.hideIndicators) {
-      return
+      return;
     }
 
-    const theme = this.props.theme 
-    const indicators = []
-    let indicatorStyle = {}
-    let content = this.props.children
+    const theme = this.props.theme;
+    const indicators = [];
+    let indicatorStyle = {};
+    let content = this.props.children;
     if (!content) {
-      content = this.props.images
+      content = this.props.images;
     }
 
     content.forEach((child, index) => {
       indicatorStyle = {
         ...theme.indicatorItem,
         ...this.props.indicatorStyle,
-        fontSize: (
-          this.props.indicatorSize
-        ),
-      }
+        fontSize: this.props.indicatorSize
+      };
       if (this.state.activeSlide === index) {
         indicatorStyle = {
           ...indicatorStyle,
           ...theme.indicatorActiveItem,
-          ...this.props.indicatorActiveStyle,
-        }
+          ...this.props.indicatorActiveStyle
+        };
       }
 
       indicators.push(
@@ -94,38 +87,34 @@ class Carousel extends Component {
         >
           •
         </Text>
-      )
-    })
+      );
+    });
 
-    return (
-      <View style={[theme.indicator]}>
-        {indicators}
-      </View>
-    )
+    return <View style={[theme.indicator]}>{indicators}</View>;
   }
 
-  _onAnimationEnd = (e) => {
-    const activeSlide = e.nativeEvent.contentOffset.x / this.props.width
-    this.setState({ activeSlide })
+  _onAnimationEnd = e => {
+    const activeSlide = e.nativeEvent.contentOffset.x / this.props.width;
+    this.setState({ activeSlide });
 
     if (this.props.onChange) {
-      this.props.onChange(activeSlide)
+      this.props.onChange(activeSlide);
     }
-  }
+  };
 
   _indicatorPressed(activeSlide) {
-    this.setState({ activeSlide })
+    this.setState({ activeSlide });
     if (this._scrollView) {
       this._scrollView.scrollTo({
-        x: activeSlide * this.props.width,
-      })
+        x: activeSlide * this.props.width
+      });
     }
   }
 
   render() {
-    const { theme, width, height, images, style } = this.props
+    const { theme, width, height, images, style } = this.props;
 
-    let content = this.props.children
+    let content = this.props.children;
     if (!content) {
       content = images.map((image, index) => {
         return (
@@ -134,21 +123,20 @@ class Carousel extends Component {
             style={[theme.image, { width, height }]}
             source={{ uri: image }}
           />
-        )
-      })
+        );
+      });
     }
 
     return (
-      <View
-        style={[theme.base, { width, height }, style]}
-      >
+      <View style={[theme.base, { width, height }, style]}>
         <ScrollView
-          bounces={Platform.OS === 'ios' ? false : undefined}
-          decelerationRate={Platform.OS === 'ios' ? 'fast' : undefined}
-          automaticallyAdjustContentInsets={Platform.OS === 'ios' ? false : undefined}
-
-          ref={(scrollView) => {
-            this._scrollView = scrollView
+          bounces={Platform.OS === "ios" ? false : undefined}
+          decelerationRate={Platform.OS === "ios" ? "fast" : undefined}
+          automaticallyAdjustContentInsets={
+            Platform.OS === "ios" ? false : undefined
+          }
+          ref={scrollView => {
+            this._scrollView = scrollView;
           }}
           horizontal
           pagingEnabled
@@ -162,8 +150,8 @@ class Carousel extends Component {
         </ScrollView>
         {this._renderIndicator()}
       </View>
-    )
+    );
   }
 }
 
-export default withTheme('Carousel', Carousel)
+export default withTheme("Carousel", Carousel);

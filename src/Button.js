@@ -1,25 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { View, Text, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/dist/Ionicons'
-import { withTheme } from './Theme'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, Text, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/dist/Ionicons";
+import { withTheme } from "./Theme";
 
-const defaultTheme = {
-  BUTTON_FONT_COLOR: '#fff',
-  BUTTON_ROUNDED_RADIUS: 25,
-  BUTTON_ROUNDED_HEIGHT: 50,
-  BUTTON_ROUNDED_FONT_SIZE: 12,
-  BUTTON_SQUARED_HEIGHT: 50,
-  BUTTON_SQUARED_FONT_SIZE: 12,
-  BUTTON_STATE_SUCCESS: '#94de45',
-  BUTTON_STATE_DANGER: '#ff9c00',
-  BUTTON_STATE_PRIMARY: '#2f8cff',
-  BUTTON_ICON_SIZE: 25,
-  BUTTON_ICON_COLOR: '#fff',
-  BUTTON_ACTIVE_ICON_COLOR: 'rgba(0, 0, 0, 0.5)',
-}
-
-const Button = (props) => {
+const Button = props => {
   const {
     activeOpacity,
     disabled,
@@ -44,76 +29,73 @@ const Button = (props) => {
     // NOTE: injected by a Switcher
     selected,
     onChange,
-    value,
-  } = props
+    value
+  } = props;
 
   // NOTE: function onChange is injected by the Switcher component
-  const switcherProp = onChange &&
-    {
-      onPress: () => {},
-      onPressOut: onChange.bind(null, value),
-    }
+  const switcherProp = onChange && {
+    onPress: () => {},
+    onPressOut: onChange.bind(null, value)
+  };
 
   const touchableProps = {
     onPress,
     onPressIn,
     onPressOut,
-    onLongPress,
-  }
+    onLongPress
+  };
 
   const btnStyles = [
     theme.baseBtn,
-    theme.kind[kind].btn,
-    theme.states[type],
-    style,
-  ]
+    theme[`btn_kind_${kind}`],
+    theme[`state_${type}`],
+    style
+  ];
 
   const textStyles = [
     theme.baseText,
-    theme.kind[kind].text,
+    theme[`text_kind_${kind}`],
     textStyle,
-    disabled ? disabledTextStyle : {},
-  ]
+    disabled ? disabledTextStyle : {}
+  ];
 
-  let leftIcon
-  let rightIcon
+  let leftIcon;
+  let rightIcon;
   if (iconName) {
     const icon = (
       <Icon
         name={iconName}
-        size={iconSize || theme.BUTTON_ICON_SIZE}
+        size={iconSize}
         color={
           selected
-            ? iconActiveColor || theme.BUTTON_ACTIVE_ICON_COLOR
-            : iconColor || theme.BUTTON_ICON_COLOR
+            ? iconActiveColor || theme.buttonIcon
+            : iconColor || theme.buttonIconSelected
         }
       />
-    )
-    leftIcon = iconPosition === 'left' && icon
-    rightIcon = iconPosition === 'right' && icon
+    );
+    leftIcon = iconPosition === "left" && icon;
+    rightIcon = iconPosition === "right" && icon;
   }
 
-  let content
+  let content;
   if (children) {
     content = (
       <Text style={textStyles}>
         {uppercase ? children.toUpperCase() : children}
       </Text>
-    )
+    );
   }
 
   return (
-    <View
-      style={[theme.container, disabled ? disabledStyle : {}]}
-    >
+    <View style={[theme.container, disabled ? disabledStyle : {}]}>
       <TouchableOpacity
         {...touchableProps}
         {...switcherProp}
         disabled={disabled}
         style={btnStyles}
         activeOpacity={activeOpacity}
-        accessibilityTraits='button'
-        accessibilityComponentType='button'
+        accessibilityTraits="button"
+        accessibilityComponentType="button"
       >
         <View style={theme.innerContainer}>
           {leftIcon}
@@ -122,52 +104,54 @@ const Button = (props) => {
         </View>
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-Button.defaultStyle = (theme = defaultTheme) => {
-  return {
+Button.themeConfig = {
+  style: {
     container: { flex: 1 },
     baseBtn: {
-      justifyContent: 'center',
+      justifyContent: "center",
       padding: 10,
-      paddingHorizontal: 20,
+      paddingHorizontal: 20
+    },
+    buttonIcon: {
+      color: "#fff"
+    },
+    buttonIconSelected: {
+      color: "rgba(0, 0, 0, 0.5)"
     },
     baseText: {
-      alignSelf: 'center',
-      color: theme.BUTTON_FONT_COLOR,
+      alignSelf: "center",
+      color: "@alternateTextColor",
       paddingHorizontal: 8,
-      fontWeight: '600',
+      fontWeight: "600"
     },
     innerContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center"
     },
-    kind: {
-      rounded: {
-        btn: {
-          borderRadius: theme.BUTTON_ROUNDED_RADIUS,
-          height: theme.BUTTON_ROUNDED_HEIGHT,
-        },
-        text: {
-          fontSize: theme.BUTTON_ROUNDED_FONT_SIZE,
-          fontWeight: '600',
-        },
-      },
-      squared: {
-        btn: { height: theme.BUTTON_SQUARED_HEIGHT },
-        text: { fontSize: theme.BUTTON_SQUARED_FONT_SIZE },
-      },
+    btn_kind_rounded: {
+      borderRadius: 25,
+      height: 50
     },
-    states: {
-      success: { backgroundColor: theme.BUTTON_STATE_SUCCESS },
-      danger: { backgroundColor: theme.BUTTON_STATE_DANGER },
-      primary: { backgroundColor: theme.BUTTON_STATE_PRIMARY },
-      naked: { backgroundColor: 'transparent' },
+    text_kind_rounded: {
+      fontSize: 12,
+      fontWeight: "600"
     },
+    btn_kind_squared: {
+      height: 50
+    },
+    text_kind_squared: {
+      fontSize: 12
+    },
+    state_success: { backgroundColor: "@successColor" },
+    state_danger: { backgroundColor: "@dangerColor" },
+    state_primary: { backgroundColor: "@primaryColor" },
+    state_naked: { backgroundColor: "@primaryColor" }
   }
-}
+};
 
 Button.propTypes = {
   activeOpacity: PropTypes.number,
@@ -175,16 +159,10 @@ Button.propTypes = {
   children: PropTypes.any,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   textStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  disabledStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array,
-  ]),
-  disabledTextStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array,
-  ]),
-  type: PropTypes.oneOf(['primary', 'danger', 'success', 'naked']),
-  kind: PropTypes.oneOf(['rounded', 'squared']),
+  disabledStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  disabledTextStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  type: PropTypes.oneOf(["primary", "danger", "success", "naked"]),
+  kind: PropTypes.oneOf(["rounded", "squared"]),
   onPress: PropTypes.func,
   onPressIn: PropTypes.func,
   onPressOut: PropTypes.func,
@@ -193,30 +171,28 @@ Button.propTypes = {
   iconSize: PropTypes.number,
   iconColor: PropTypes.string,
   iconActiveColor: PropTypes.string,
-  iconPosition: PropTypes.oneOf(['left', 'right']),
+  iconPosition: PropTypes.oneOf(["left", "right"]),
   uppercase: PropTypes.bool,
   theme: PropTypes.object,
   // NOTE: injected by a Switcher
   onChange: PropTypes.func,
   selected: PropTypes.bool,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-}
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+};
 
 Button.defaultProps = {
+  iconSize: 24,
   activeOpacity: 0.8,
   disabled: false,
   disabledStyle: { opacity: 0.3 },
-  type: 'primary',
-  kind: 'rounded',
+  type: "primary",
+  kind: "rounded",
   onPress: () => {},
   onPressIn: () => {},
   onPressOut: () => {},
   onLongPress: () => {},
-  iconPosition: 'right',
-  uppercase: true,
-}
+  iconPosition: "right",
+  uppercase: true
+};
 
-export default withTheme('Button', Button)
+export default withTheme("Button", Button);

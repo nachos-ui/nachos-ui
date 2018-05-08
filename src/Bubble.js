@@ -1,141 +1,129 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { View, Text } from 'react-native'
-import { withTheme } from './Theme'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, Text } from "react-native";
+import { withTheme } from "./Theme";
 
-const defaultTheme = {
-  BUBBLE_BACKGROUND: '#2f8cff',
-  BUBBLE_MIN_HEIGHT: 70,
-  BUBBLE_BORDER_RADIUS: 10,
-  BUBBLE_PADDING_VERTICAL: 15,
-  BUBBLE_PADDING_HORIZONTAL: 25,
-  BUBBLE_FONT_SIZE: 14,
-  BUBBLE_FONT_COLOR: '#fff',
-}
+const Bubble = props => {
+  const { arrowPosition, style, children, theme } = props;
 
-const Bubble = (props) => {
-  const {
-    arrowPosition,
-    style,
-    children,
-    theme,
-  } = props
-
-  const color = props.color || theme.BUBBLE_BACKGROUND
-
+  const color = props.color || theme.BUBBLE_BACKGROUND;
+  const arrowStyle = {
+    top: {
+      borderBottomColor: color
+    },
+    right: {
+      borderLeftColor: color
+    },
+    bottom: {
+      borderTopColor: color
+    },
+    left: {
+      borderRightColor: color
+    }
+  };
   return (
     <View style={style}>
       <View style={[theme.base, { backgroundColor: color }]}>
-        <Text style={theme.text}>
-          {children}
-        </Text>
+        <Text style={theme.text}>{children}</Text>
         <View
           style={[
             theme.arrowContainer,
-            theme.arrowPosition[arrowPosition],
+            theme[`arrowPosition_${arrowPosition}`]
           ]}
         >
-          <View style={theme.arrow(color)[arrowPosition]} />
+          <View
+            style={[theme[`arrow_${arrowPosition}`], arrowStyle[arrowPosition]]}
+          />
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
-Bubble.defaultStyle = (theme = defaultTheme) => {
-  return {
+Bubble.themeConfig = {
+  style: {
     base: {
-      position: 'relative',
-      minHeight: theme.BUBBLE_MIN_HEIGHT,
-      borderRadius: theme.BUBBLE_BORDER_RADIUS,
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingVertical: theme.BUBBLE_PADDING_VERTICAL,
-      paddingHorizontal: theme.BUBBLE_PADDING_HORIZONTAL,
+      position: "relative",
+      minHeight: 70,
+      borderRadius: 10,
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      paddingVertical: 15,
+      paddingHorizontal: 25
     },
     text: {
-      color: theme.BUBBLE_FONT_COLOR,
-      fontSize: theme.BUBBLE_FONT_SIZE,
+      color: "@alternateTextColor",
+      fontSize: 14
     },
     arrowContainer: {
-      position: 'absolute',
+      position: "absolute",
       top: 0,
       left: 0,
       right: 0,
-      bottom: 0,
+      bottom: 0
     },
-    arrowPosition: {
-      top: {
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-      },
-      right: {
-        justifyContent: 'center',
-        alignItems: 'flex-end',
-      },
-      bottom: {
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-      },
-      left: {
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-      },
+    arrowPosition_top: {
+      justifyContent: "flex-start",
+      alignItems: "center"
     },
-    arrow: (color) => {
-      return {
-        top: {
-          marginTop: -7,
-          borderRightWidth: 6,
-          borderBottomWidth: 7,
-          borderLeftWidth: 6,
-          borderRightColor: 'transparent',
-          borderBottomColor: color,
-          borderLeftColor: 'transparent',
-        },
-        right: {
-          marginRight: -7,
-          borderTopWidth: 6,
-          borderBottomWidth: 6,
-          borderLeftWidth: 7,
-          borderTopColor: 'transparent',
-          borderBottomColor: 'transparent',
-          borderLeftColor: color,
-        },
-        bottom: {
-          marginBottom: -7,
-          borderRightWidth: 6,
-          borderTopWidth: 7,
-          borderLeftWidth: 6,
-          borderRightColor: 'transparent',
-          borderTopColor: color,
-          borderLeftColor: 'transparent',
-        },
-        left: {
-          marginLeft: -7,
-          borderTopWidth: 6,
-          borderRightWidth: 7,
-          borderBottomWidth: 6,
-          borderTopColor: 'transparent',
-          borderRightColor: color,
-          borderBottomColor: 'transparent',
-        },
-      }
+    arrowPosition_right: {
+      justifyContent: "center",
+      alignItems: "flex-end"
     },
+    arrowPosition_bottom: {
+      justifyContent: "flex-end",
+      alignItems: "center"
+    },
+    arrowPosition_left: {
+      justifyContent: "center",
+      alignItems: "flex-start"
+    },
+    arrow_top: {
+      marginTop: -7,
+      borderRightWidth: 6,
+      borderBottomWidth: 7,
+      borderLeftWidth: 6,
+      borderRightColor: "transparent",
+      borderLeftColor: "transparent"
+    },
+    arrow_right: {
+      marginRight: -7,
+      borderTopWidth: 6,
+      borderBottomWidth: 6,
+      borderLeftWidth: 7,
+      borderTopColor: "transparent",
+      borderBottomColor: "transparent"
+    },
+    arrow_bottom: {
+      marginBottom: -7,
+      borderRightWidth: 6,
+      borderTopWidth: 7,
+      borderLeftWidth: 6,
+      borderRightColor: "transparent",
+      borderLeftColor: "transparent"
+    },
+    arrow_left: {
+      marginLeft: -7,
+      borderTopWidth: 6,
+      borderRightWidth: 7,
+      borderBottomWidth: 6,
+      borderTopColor: "transparent",
+      borderBottomColor: "transparent"
+    }
   }
-}
+};
 
 Bubble.propTypes = {
-  arrowPosition: PropTypes.oneOf(['top', 'left', 'bottom', 'right']),
+  arrowPosition: PropTypes.oneOf(["top", "left", "bottom", "right"]),
   color: PropTypes.string,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   children: PropTypes.node.isRequired,
-  theme: PropTypes.object,
-}
+  theme: PropTypes.object
+};
 
 Bubble.defaultProps = {
-  arrowPosition: 'left',
-}
+  arrowPosition: "left"
+};
 
-export default withTheme('bubble', Bubble)
+export default withTheme("bubble", Bubble);

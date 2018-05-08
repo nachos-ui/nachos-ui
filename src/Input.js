@@ -1,56 +1,35 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { View, TextInput } from 'react-native'
-import Icon from 'react-native-vector-icons/dist/Ionicons'
-import { withTheme } from './Theme'
+import React from "react";
+import PropTypes from "prop-types";
+import { View, TextInput } from "react-native";
+import Icon from "react-native-vector-icons/dist/Ionicons";
+import { withTheme } from "./Theme";
 
-const defaultTheme = {
-  INPUT_HEIGHT: 46,
-  INPUT_BACKGROUND: '#fff',
-  INPUT_ICON_SIZE: 20,
-  INPUT_VALID_ICON: 'md-checkmark',
-  INPUT_WARN_ICON: 'md-alert',
-  INPUT_ERROR_ICON: 'md-close',
-  INPUT_NORMAL_COLOR: '#bdc1cc',
-  INPUT_VALID_COLOR: '#66bd2b',
-  INPUT_WARN_COLOR: '#ff8c2f',
-  INPUT_ERROR_COLOR: '#e03126',
-}
+const Input = props => {
+  const { theme, width, status, style, disabled, icon } = props;
 
-const Input = (props) => {
-  const {
-    theme,
-    width,
-    status,
-    style,
-    disabled,
-    icon = theme.INPUT_HEIGHT,
-    height = theme.INPUT_HEIGHT,
-  } = props
-
-  let IconComponent
+  let IconComponent;
   if (icon) {
     IconComponent = (
       <Icon
         name={icon}
-        size={theme.INPUT_ICON_SIZE}
+        size={theme.settings.iconSize}
         color={theme.colorStates[status]}
         style={[theme.icon]}
       />
-    )
+    );
   }
 
   // NOTE: Clone props and then delete Component specific props so we can
   // spread the rest
-  let { ...rest } = props
-  delete rest.editable
-  delete rest.inputStyle
-  delete rest.style
-  delete rest.disabled
-  delete rest.status
-  delete rest.icon
-  delete rest.height
-  delete rest.width
+  let { ...rest } = props;
+  delete rest.editable;
+  delete rest.inputStyle;
+  delete rest.style;
+  delete rest.disabled;
+  delete rest.status;
+  delete rest.icon;
+  delete rest.height;
+  delete rest.width;
 
   return (
     <View
@@ -58,8 +37,8 @@ const Input = (props) => {
         theme.base,
         theme[status],
         style,
-        { width, height },
-        disabled ? theme.disabled : {},
+        { width },
+        disabled ? theme.disabled : {}
       ]}
     >
       <TextInput
@@ -69,79 +48,79 @@ const Input = (props) => {
           theme.base,
           theme.input,
           props.inputStyle,
-          { color: theme.colorStates[status], width, height },
+          { color: theme.colorStates[status], width }
         ]}
       />
       {IconComponent}
     </View>
-  )
-}
+  );
+};
 
-Input.defaultStyle = (theme = defaultTheme) => {
-  return {
-    base: { alignSelf: 'stretch', borderWidth: 1 },
+Input.themeConfig = {
+  settings: {
+    iconSize: 20
+  },
+  style: {
+    base: { alignSelf: "stretch", borderWidth: 1, height: 46 },
     normal: {
-      backgroundColor: theme.INPUT_BACKGROUND,
-      borderColor: theme.INPUT_NORMAL_COLOR,
-      borderStyle: 'solid',
+      backgroundColor: "#fff",
+      borderColor: "#bdc1cc",
+      borderStyle: "solid"
     },
     disabled: { opacity: 0.2 },
     valid: {
-      borderColor: theme.INPUT_VALID_COLOR,
-      borderStyle: 'solid',
+      borderColor: "#66bd2b",
+      borderStyle: "solid"
     },
     error: {
-      borderColor: theme.INPUT_ERROR_COLOR,
-      borderStyle: 'solid',
+      borderColor: "#e03126",
+      borderStyle: "solid"
     },
     warn: {
-      borderColor: theme.INPUT_WARN_COLOR,
-      borderStyle: 'solid',
+      borderColor: "#ff8c2f",
+      borderStyle: "solid"
     },
     input: {
-      borderColor: 'transparent',
+      borderColor: "transparent",
       paddingLeft: 12,
-      paddingRight: 6,
+      paddingRight: 6
     },
     icon: {
       top: 12,
       right: 12,
-      position: 'absolute',
-      backgroundColor: 'transparent',
+      position: "absolute",
+      backgroundColor: "transparent"
     },
     iconStates: {
-      valid: theme.INPUT_VALID_ICON,
-      warn: theme.INPUT_WARN_ICON,
-      error: theme.INPUT_ERROR_ICON,
+      valid: "md-checkmark",
+      warn: "md-alert",
+      error: "md-close"
     },
     colorStates: {
-      normal: theme.INPUT_NORMAL_COLOR,
-      valid: theme.INPUT_VALID_COLOR,
-      warn: theme.INPUT_WARN_COLOR,
-      error: theme.INPUT_ERROR_COLOR,
-    },
+      normal: "#bdc1cc",
+      valid: "#66bd2b",
+      warn: "#ff8c2f",
+      error: "#e03126"
+    }
   }
-}
+};
 
 Input.propTypes = {
   value: PropTypes.string,
   disabled: PropTypes.bool,
-  status: PropTypes.oneOf(['normal', 'valid', 'error', 'warn']),
+  status: PropTypes.oneOf(["normal", "valid", "error", "warn"]),
   width: PropTypes.number,
   height: PropTypes.number,
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  inputStyle: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array,
-  ]),
+  inputStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   icon: PropTypes.string,
-  theme: PropTypes.object,
-}
+  theme: PropTypes.object
+};
 
 Input.defaultProps = {
-  value: '',
+  value: "",
   disabled: false,
-  status: 'normal',
-}
+  status: "normal"
+};
 
-export default withTheme('Input', Input)
+export default withTheme("Input", Input);

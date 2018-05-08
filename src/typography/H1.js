@@ -1,25 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Text from './Text'
-import themeManager from '../themeManager'
+import React from "react";
+import PropTypes from "prop-types";
+import Text from "./Text";
+import { withTheme } from "../Theme";
 
-const theme = {
-  ...themeManager.getStyle('Text'),
-  FONT_COLOR: '#bdc1cc',
-  FONT_SIZE: 28,
-  FONT_WEIGHT: '500',
-}
-
-themeManager.setSource('H1', () => theme)
-
-const H1 = (props) => {
+const H1 = props => {
   const textProps = {
     ...props,
-    theme: props.theme || themeManager.getStyle('H1'),
+    theme: props.theme
+  };
+  return <Text {...textProps} />;
+};
+
+H1.themeConfig = {
+  styles: {
+    base: {
+      fontSize: 28,
+      fontStyle: "normal",
+      color: "@textColor",
+      paddingVertical: 10,
+      textAlign: "left",
+      fontWeight: "500"
+    }
   }
-  return <Text {...textProps} />
-}
+};
 
-H1.propTypes = { theme: PropTypes.object }
+H1.propTypes = { theme: PropTypes.object };
 
-export default H1
+export default withTheme("H1", H1);

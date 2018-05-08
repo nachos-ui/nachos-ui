@@ -10,12 +10,7 @@
     "email": "petr@avocode.com"
   },
   "repository": "avocode/nachos-ui",
-  "keywords": [
-    "react",
-    "react-component",
-    "react-native",
-    "ui-kit"
-  ],
+  "keywords": ["react", "react-component", "react-native", "ui-kit"],
   "scripts": {
     "build": "babel src/ -d lib/",
     "build:web": "webpack --progress -p",
@@ -24,10 +19,12 @@
     "docs:run": "http-server ./styleguide",
     "docs:prod": "npm run docs -- -r \"nachos-ui/docs\"",
     "start": "react-native run-ios",
-    "start:web": "webpack-dev-server --port 3000 --config webpack.config.js --inline --hot --colors --quiet",
+    "start:web":
+      "webpack-dev-server --port 3000 --config webpack.config.js --inline --hot --colors --quiet",
     "lint": "eslint src docs",
     "lint:fix": "eslint --fix src docs",
-    "fmt": "prettier --print-width 70 --write '{src,docs}/**/*.js'; npm run lint:fix; gulp semistrip",
+    "fmt":
+      "prettier --print-width 70 --write '{src,docs}/**/*.js'; npm run lint:fix; gulp semistrip",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -47,9 +44,7 @@
       "__DEV__": true
     },
     "setupTestFrameworkScriptFile": "<rootDir>/scripts/enzyme_setup.js",
-    "testMatch": [
-      "<rootDir>/src/**/?(*.)spec.js"
-    ]
+    "testMatch": ["<rootDir>/src/**/?(*.)spec.js"]
   },
   "peerDependencies": {
     "react": ">=16.3.1",

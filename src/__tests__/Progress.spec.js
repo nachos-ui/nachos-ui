@@ -1,11 +1,16 @@
-import 'react-native'
-import React from 'react'
-import renderer from 'react-test-renderer'
+import "react-native";
+import React from "react";
+import renderer from "react-test-renderer";
+import { Provider } from "../Theme";
 
-import Progress from '../Progress'
+import Progress from "../Progress";
 
-it('should render correctly', () => {
-  const component = renderer.create(<Progress progress={0.5} />)
-  const tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
-})
+it("should render correctly", () => {
+  const component = renderer.create(
+    <Provider>
+      <Progress progress={0.5} />
+    </Provider>
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});

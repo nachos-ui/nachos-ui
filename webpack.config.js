@@ -1,6 +1,6 @@
-const path = require('path')
-const webpack = require('webpack')
-const StringReplacePlugin = require('string-replace-webpack-plugin')
+const path = require("path");
+const webpack = require("webpack");
+const StringReplacePlugin = require("string-replace-webpack-plugin");
 
 const replacement = {
   replacements: [
@@ -13,35 +13,36 @@ const replacement = {
           ${group1}.styleguide.code = \`${group2}\`
           ${group1}.styleguide.index = \`${group1}\`
           ${group1}.styleguide.category = 'Showcase'
-        `
-      },
-    },
-  ],
-}
+        `;
+      }
+    }
+  ]
+};
 
 module.exports = {
   devServer: { contentBase: path.join(__dirname) },
-  entry: [path.join(__dirname, 'index.web.js')],
+  entry: [path.join(__dirname, "index.web.js")],
+  devtool: "cheap-eval-source-map",
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules\/(?!(react-native-.*)\/).*/,
-        loaders: [ 'babel-loader', StringReplacePlugin.replace(replacement) ],
+        loaders: ["babel-loader", StringReplacePlugin.replace(replacement)]
       },
       {
         test: /\.(gif|jpe?g|png|svg|ttf)$/,
-        loader: 'url-loader',
-        query: { name: '[name].[hash:16].[ext]' },
+        loader: "url-loader",
+        query: { name: "[name].[hash:16].[ext]" }
       },
-      { test: /\.(json)$/, loader: 'json-loader' },
-      { test: /\.(md)$/, loader: 'raw-loader' },
-    ],
+      { test: /\.(json)$/, loader: "json-loader" },
+      { test: /\.(md)$/, loader: "raw-loader" }
+    ]
   },
-  output: { filename: 'bundle.js' },
+  output: { filename: "bundle.js" },
   plugins: [
     new StringReplacePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin()
   ],
-  resolve: { alias: { 'react-native': 'react-native-web' } },
-}
+  resolve: { alias: { "react-native": "react-native-web" } }
+};

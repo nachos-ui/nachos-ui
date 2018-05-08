@@ -1,69 +1,60 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { View, PanResponder, Platform } from 'react-native'
-import Progress from './Progress'
-
-const defaultTheme = {
-  FINGER_SIZE: 72,
-}
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { View, PanResponder, Platform } from "react-native";
+import Progress from "./Progress";
+import { withTheme } from "./Theme";
 
 class Slider extends Component {
-  static defaultStyle = (theme = defaultTheme) => {
-    return {
+  static themeConfig = {
+    style: {
       base: {
-        position: 'relative',
-        marginVertical: 25,
+        position: "relative",
+        marginVertical: 25
       },
       finger: {
-        backgroundColor: 'rgba(0, 0, 0, 0)',
+        backgroundColor: "rgba(0, 0, 0, 0)",
         borderRadius: 90,
-        width: theme.FINGER_SIZE,
-        height: theme.FINGER_SIZE,
+        width: 72,
+        height: 72
       },
       knob: {
-        position: 'absolute',
+        position: "absolute",
         top: -22 + 2,
         left: -22,
         width: 44,
         height: 44,
         borderRadius: 22,
-        backgroundColor: 'white',
-        shadowColor: 'black',
+        backgroundColor: "white",
+        shadowColor: "black",
         shadowOpacity: 0.25,
         shadowRadius: 4,
         shadowOffset: { width: 0, height: 2 },
         alignItems: "center",
         justifyContent: "center",
-  
-        // NOTE: for web
-        ...(Platform.OS === 'web'
+        ...(Platform.OS === "web"
           ? {
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.25)',
-          }
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.25)"
+            }
           : {}),
-        ...(Platform.OS === 'android'
+        ...(Platform.OS === "android"
           ? {
-              // NOTE: for android
-            elevation: 1,
-          }
-          : {}),
-      },
+              elevation: 1
+            }
+          : {})
+      }
     }
-  }
+  };
   static propTypes = {
     value: PropTypes.number,
     maxValue: PropTypes.number,
     minValue: PropTypes.number,
     style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    knobStyle: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.array,
-    ]),
+    knobStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     width: PropTypes.number,
     height: PropTypes.number,
     onValueChange: PropTypes.func,
-    theme: PropTypes.object,
-  }
+    theme: PropTypes.object
+  };
 
   static defaultProps = {
     value: 0,
@@ -71,8 +62,8 @@ class Slider extends Component {
     minValue: 0,
     width: 300,
     height: 6,
-    onValueChange: () => {},
-  }
+    onValueChange: () => {}
+  };
 
   componentWillMount() {
     this._panResponder = PanResponder.create({
@@ -81,23 +72,23 @@ class Slider extends Component {
       onStartShouldSetPanResponderCapture: () => true,
       onMoveShouldSetPanResponder: () => false,
       onPanResponderGrant: this._handlePanResponderGrant,
-      onPanResponderMove: this._handlePanResponderMove,
-    })
+      onPanResponderMove: this._handlePanResponderMove
+    });
   }
 
   _handlePanResponderGrant = () => {
-    this._onGrantValue = this.props.value
-  }
+    this._onGrantValue = this.props.value;
+  };
 
   _handlePanResponderMove = (e, gesture) => {
-    const { onValueChange, minValue, maxValue, width } = this.props
-    const oldProgress = this._onGrantValue / (maxValue - minValue)
-    const valueRange = maxValue - minValue
-    const newProgress = oldProgress + gesture.dx / width
-    const newValue = minValue + newProgress * valueRange
+    const { onValueChange, minValue, maxValue, width } = this.props;
+    const oldProgress = this._onGrantValue / (maxValue - minValue);
+    const valueRange = maxValue - minValue;
+    const newProgress = oldProgress + gesture.dx / width;
+    const newValue = minValue + newProgress * valueRange;
 
-    onValueChange(Math.max(minValue, Math.min(maxValue, newValue)))
-  }
+    onValueChange(Math.max(minValue, Math.min(maxValue, newValue)));
+  };
 
   render() {
     const {
@@ -108,13 +99,13 @@ class Slider extends Component {
       knobStyle,
       width,
       height,
-      theme,
-    } = this.props
+      theme
+    } = this.props;
 
-    const progress = value / (maxValue - minValue)
+    const progress = value / (maxValue - minValue);
     const knobTransform = {
-      transform: [{ translateX: width * progress }],
-    }
+      transform: [{ translateX: width * progress }]
+    };
 
     return (
       <View style={[theme.base, style, { width, height }]}>
@@ -126,8 +117,8 @@ class Slider extends Component {
           <View style={theme.finger} />
         </View>
       </View>
-    )
+    );
   }
 }
 
-export default Slider
+export default withTheme("Slider", Slider);
