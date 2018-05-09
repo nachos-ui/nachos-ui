@@ -37,7 +37,6 @@ const Input = props => {
   delete rest.iconSize;
   delete rest.iconStates;
 
-  console.log(statusTheme);
   return (
     <View
       style={[

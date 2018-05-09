@@ -5,7 +5,7 @@ export default {
 
   linkColor: "blue",
 
-  successColor: "green",
-  dangerColor: "red",
-  primaryColor: "blue"
+  successColor: "#94df45",
+  dangerColor: "#ff9c00",
+  primaryColor: "#2f8bff"
 };

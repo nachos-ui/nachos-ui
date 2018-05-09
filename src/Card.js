@@ -83,7 +83,7 @@ Card.themeConfig = {
       alignSelf: "stretch"
     },
     footerText: {
-      paddingTop: 0,
+      paddingTop: 10,
       paddingBottom: 0
     }
   }

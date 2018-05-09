@@ -6,7 +6,7 @@ import { withTheme } from "./Theme";
 const Bubble = props => {
   const { arrowPosition, style, children, theme } = props;
 
-  const color = props.color || theme.BUBBLE_BACKGROUND;
+  const color = props.color || theme;
   const arrowStyle = {
     top: {
       borderBottomColor: color
@@ -41,6 +41,9 @@ const Bubble = props => {
 };
 
 Bubble.themeConfig = {
+  settings: {
+    color: "#2f8bff"
+  },
   style: {
     base: {
       position: "relative",

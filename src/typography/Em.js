@@ -12,7 +12,7 @@ const Em = props => {
 };
 
 Em.themeConfig = {
-  styles: {
+  style: {
     base: {
       fontSize: 14,
       fontWeight: "normal",

@@ -3,33 +3,35 @@ import PropTypes from "prop-types";
 import { View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/dist/Ionicons";
 import { withTheme } from "./Theme";
+import { StyleSheet } from "react-native";
 
-const Button = ({
-  activeOpacity,
-  disabled,
-  children,
-  style,
-  textStyle,
-  disabledStyle,
-  disabledTextStyle,
-  type,
-  kind,
-  uppercase,
-  iconName,
-  iconSize,
-  iconColor,
-  iconActiveColor,
-  iconPosition,
-  onPress,
-  onPressIn,
-  onPressOut,
-  onLongPress,
-  theme,
-  // NOTE: injected by a Switcher
-  selected,
-  onChange,
-  value
-}) => {
+const Button = props => {
+  const {
+    activeOpacity,
+    disabled,
+    children,
+    style,
+    textStyle,
+    disabledStyle,
+    disabledTextStyle,
+    type,
+    kind,
+    uppercase,
+    iconName,
+    iconSize,
+    iconColor,
+    iconActiveColor,
+    iconPosition,
+    onPress,
+    onPressIn,
+    onPressOut,
+    onLongPress,
+    theme,
+    // NOTE: injected by a Switcher
+    selected,
+    onChange,
+    value
+  } = props;
   // NOTE: function onChange is injected by the Switcher component
   const switcherProp = onChange && {
     onPress: () => {},
@@ -64,11 +66,7 @@ const Button = ({
       <Icon
         name={iconName}
         size={iconSize}
-        color={
-          selected
-            ? iconActiveColor || theme.buttonIcon
-            : iconColor || theme.buttonIconSelected
-        }
+        color={selected ? iconActiveColor : iconColor}
       />
     );
     leftIcon = iconPosition === "left" && icon;
@@ -106,18 +104,16 @@ const Button = ({
 };
 
 Button.themeConfig = {
+  settings: {
+    iconColor: "#fff",
+    iconActiveColor: "rgba(0, 0, 0, 0.5)"
+  },
   style: {
     container: { flex: 1 },
     baseBtn: {
       justifyContent: "center",
       padding: 10,
       paddingHorizontal: 20
-    },
-    buttonIcon: {
-      color: "#fff"
-    },
-    buttonIconSelected: {
-      color: "rgba(0, 0, 0, 0.5)"
     },
     baseText: {
       alignSelf: "center",

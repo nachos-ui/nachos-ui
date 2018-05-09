@@ -4,18 +4,10 @@ import { View } from "react-native";
 import { withTheme } from "./Theme";
 
 const Progress = props => {
-  const {
-    theme,
-    progress,
-    style,
-    color,
-    width = theme.base.width,
-    height = theme.base.height
-  } = props;
+  const { theme, progress, style, color, width, height } = props;
 
   const outerStyle = {
     borderRadius: height / 2,
-    ...style,
     width,
     height
   };
@@ -23,23 +15,23 @@ const Progress = props => {
   const innerStyle = {
     height,
     width: width * progress,
-    backgroundColor: color || undefined,
     borderRadius: height / 2
   };
+  if (color) innerStyle.backgroundColor = color;
 
   return (
-    <View style={[theme.outerStyle, outerStyle]}>
+    <View style={[theme.outerStyle, outerStyle, style]}>
       <View style={[theme.innerStyle, innerStyle]} />
     </View>
   );
 };
 
 Progress.themeConfig = {
+  settings: {
+    width: 300,
+    height: 6
+  },
   style: {
-    base: {
-      width: 300,
-      height: 6
-    },
     outerStyle: {
       backgroundColor: "#bdc1cc",
       overflow: "hidden"

@@ -62,8 +62,8 @@ Checkbox.themeConfig = {
   style: {
     base: {
       position: "relative",
-      width: 20,
-      height: 20,
+      width: 26,
+      height: 26,
       borderWidth: 2,
       justifyContent: "center",
       alignItems: "center",

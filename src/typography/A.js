@@ -6,7 +6,7 @@ import { withTheme } from "../Theme";
 
 class A extends Component {
   static themeConfig = {
-    styles: {
+    style: {
       base: {
         fontSize: 14,
         fontWeight: "normal",

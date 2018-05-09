@@ -6,6 +6,7 @@ import { withTheme } from "../Theme";
 const Text = props => {
   const theme = props.theme;
   const { ...textProps } = props;
+  console.log(theme);
   textProps.style = [theme.base, { textAlign: props.align }, textProps.style];
 
   // NOTE: delete Component specific props

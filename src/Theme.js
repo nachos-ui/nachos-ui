@@ -27,6 +27,10 @@ export class Provider extends React.Component {
         return this.branding[key];
       })
     );
+
+    // if (name === "H1") {
+    //   console.log(themeConfig);
+    // }
     return (this.themeConfigs[name] = {
       computedStyle: themeConfig.style
         ? StyleSheet.create(themeConfig.style)
@@ -62,16 +66,44 @@ export function withTheme(componentName, ThemedComponent) {
         console.warn(`failed to update theme for ${componentName}`, e);
       }
     }
+
+    isObject(item) {
+      return item && typeof item === "object" && !Array.isArray(item);
+    }
+
+    mergeDeep(target, ...sources) {
+      if (!sources.length) return target;
+      const source = sources.shift();
+
+      if (this.isObject(target) && this.isObject(source)) {
+        for (const key in source) {
+          if (this.isObject(source[key])) {
+            if (!target[key]) Object.assign(target, { [key]: {} });
+            this.mergeDeep(target[key], source[key]);
+          } else {
+            Object.assign(target, { [key]: source[key] });
+          }
+        }
+      }
+
+      return this.mergeDeep(target, ...sources);
+    }
     render() {
-      const props = this.props;
       return (
         <ThemeContext.Consumer>
           {({ theme }) => {
+            const computedTheme =
+              (theme[componentName] || {}).computedStyle || {};
+
+            const fullTheme = this.props.theme
+              ? this.mergeDeep({}, computedTheme, this.props.theme)
+              : computedTheme;
+
             return (
               <ThemedComponent
-                {...props}
-                theme={(theme[componentName] || {}).computedStyle || {}}
                 {...(theme[componentName] || {}).props || {}}
+                {...this.props}
+                theme={fullTheme}
               />
             );
           }}

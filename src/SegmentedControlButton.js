@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Button from "./Button";
 import { withTheme } from "./Theme";
 import { StyleSheet } from "react-native";
+
 const SegmentedControlButton = props => {
   const {
     value,
@@ -85,7 +86,8 @@ SegmentedControlButton.themeConfig = {
     },
     baseText: {
       fontSize: 12,
-      fontWeight: "500"
+      fontWeight: "500",
+      color: "#bdc1cc"
     },
     selected: {
       backgroundColor: "#2f8cff",

@@ -4,15 +4,13 @@ import Text from "./Text";
 import { withTheme } from "../Theme";
 
 const H1 = props => {
-  const textProps = {
-    ...props,
-    theme: props.theme
-  };
-  return <Text {...textProps} />;
+  console.log(props);
+  console.log("h1", props.theme);
+  return <Text {...props} />;
 };
 
 H1.themeConfig = {
-  styles: {
+  style: {
     base: {
       fontSize: 28,
       fontStyle: "normal",
