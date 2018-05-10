@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, TextInput } from "react-native";
-import Icon from "react-native-vector-icons/dist/Ionicons";
+import Icon from "react-native-vector-icons/Ionicons";
 import { withTheme } from "./Theme";
 import { StyleSheet } from "react-native";
 

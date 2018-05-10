@@ -33,11 +33,11 @@ Progress.themeConfig = {
   },
   style: {
     outerStyle: {
-      backgroundColor: "#bdc1cc",
+      backgroundColor: "@disabledColor",
       overflow: "hidden"
     },
     innerStyle: {
-      backgroundColor: "#2f8cff"
+      backgroundColor: "@primaryColor"
     }
   }
 };

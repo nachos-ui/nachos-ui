@@ -2,11 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, Text } from "react-native";
 import { withTheme } from "./Theme";
+import { StyleSheet } from "react-native";
 
 const Bubble = props => {
-  const { arrowPosition, style, children, theme } = props;
+  const {
+    arrowPosition,
+    style,
+    children,
+    theme,
+    bubbleStyle,
+    textStyle
+  } = props;
 
-  const color = props.color || theme;
+  const color =
+    bubbleStyle && bubbleStyle.backgroundColor
+      ? bubbleStyle.backgroundColor
+      : StyleSheet.flatten(theme.base).backgroundColor;
   const arrowStyle = {
     top: {
       borderBottomColor: color
@@ -23,8 +34,8 @@ const Bubble = props => {
   };
   return (
     <View style={style}>
-      <View style={[theme.base, { backgroundColor: color }]}>
-        <Text style={theme.text}>{children}</Text>
+      <View style={[theme.base, bubbleStyle]}>
+        <Text style={[theme.text, textStyle]}>{children}</Text>
         <View
           style={[
             theme.arrowContainer,
@@ -41,13 +52,12 @@ const Bubble = props => {
 };
 
 Bubble.themeConfig = {
-  settings: {
-    color: "#2f8bff"
-  },
+  settings: {},
   style: {
     base: {
       position: "relative",
-      minHeight: 70,
+      backgroundColor: "@primaryColor",
+      minHeight: 50,
       borderRadius: 10,
       flexDirection: "column",
       alignItems: "center",

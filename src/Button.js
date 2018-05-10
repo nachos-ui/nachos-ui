@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, Text, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/dist/Ionicons";
+import Icon from "react-native-vector-icons/Ionicons";
 import { withTheme } from "./Theme";
 import { StyleSheet } from "react-native";
 
@@ -19,7 +19,6 @@ const Button = props => {
     uppercase,
     iconName,
     iconSize,
-    iconColor,
     iconActiveColor,
     iconPosition,
     onPress,
@@ -55,6 +54,7 @@ const Button = props => {
   const textStyles = [
     theme.baseText,
     theme[`text_kind_${kind}`],
+    theme[`state_${type}`],
     textStyle,
     disabled ? disabledTextStyle : {}
   ];
@@ -62,6 +62,7 @@ const Button = props => {
   let leftIcon;
   let rightIcon;
   if (iconName) {
+    const iconColor = StyleSheet.flatten(theme[`iconState_${type}`]).color;
     const icon = (
       <Icon
         name={iconName}
@@ -81,7 +82,7 @@ const Button = props => {
       </Text>
     );
   }
-
+  delete btnStyles.color;
   return (
     <View style={[theme.container, disabled ? disabledStyle : {}]}>
       <TouchableOpacity
@@ -128,22 +129,43 @@ Button.themeConfig = {
     },
     btn_kind_rounded: {
       borderRadius: 25,
-      height: 50
+      height: 40
     },
     text_kind_rounded: {
       fontSize: 12,
       fontWeight: "600"
     },
     btn_kind_squared: {
-      height: 50
+      height: 40
     },
     text_kind_squared: {
       fontSize: 12
     },
-    state_success: { backgroundColor: "@successColor" },
-    state_danger: { backgroundColor: "@dangerColor" },
-    state_primary: { backgroundColor: "@primaryColor" },
-    state_naked: { backgroundColor: "@primaryColor" }
+    state_success: {
+      backgroundColor: "@successLightColor"
+    },
+    state_danger: {
+      backgroundColor: "@dangerLightColor"
+    },
+    state_primary: {
+      backgroundColor: "@primaryLightColor"
+    },
+    state_naked: {
+      backgroundColor: "@primaryLightColor"
+    },
+
+    iconState_success: {
+      color: "@successColor"
+    },
+    iconState_danger: {
+      color: "@dangerColor"
+    },
+    iconState_primary: {
+      color: "@primaryColor"
+    },
+    iconState_naked: {
+      color: "@primaryColor"
+    }
   }
 };
 

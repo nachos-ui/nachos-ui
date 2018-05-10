@@ -1,43 +1,30 @@
-import React from 'react'
-import { View } from 'react-native'
+import React from "react";
+import { View } from "react-native";
 
-import Button from '../src/Button'
-import H4 from '../src/typography/H4'
+import Button from "../src/Button";
+import H4 from "../src/typography/H4";
 
 // WEBPACK (ButtonExample)
 const ButtonExample = () => {
-  const btnStyle = { margin: 3 }
+  const btnStyle = { margin: 3 };
   return (
-    <View style={{ flex: 1, flexDirection: 'column' }}>
+    <View style={{ flex: 1, flexDirection: "column" }}>
       <H4>Example:</H4>
-      <Button type='success' style={btnStyle}>Success</Button>
-      <Button type='danger' style={btnStyle}>Danger</Button>
+      <Button type="success" iconName="md-cloud-download" style={btnStyle}>
+        Success
+      </Button>
+      <Button type="danger" style={btnStyle}>
+        Danger
+      </Button>
       <Button style={btnStyle}>Primary</Button>
 
-      <Button kind='squared' type='success' style={btnStyle}>
+      <H4 align="center">Disabled style</H4>
+      <Button type="success" disabled style={btnStyle}>
         Success
-      </Button>
-      <Button kind='squared' type='danger' style={btnStyle}>
-        Danger
-      </Button>
-      <Button
-        kind='squared'
-        iconName='md-cloud-download'
-        style={btnStyle}
-      >
-        Primary
-      </Button>
-
-      <H4 align='center'>Disabled style</H4>
-      <Button type='success' disabled style={btnStyle}>
-        Success
-      </Button>
-      <Button kind='squared' type='danger' disabled style={btnStyle}>
-        Danger
       </Button>
     </View>
-  )
-}
+  );
+};
 // WEBPACK
 
 const description = `
@@ -63,12 +50,12 @@ const description = `
 | \`iconPosition\` | \`enum\` | \`'right'\` | One of: \`left, right\` |
 | \`uppercase\` | \`bool\` | \`'true'\` | Determines whether text should be uppercased  |
 | \`theme\` | \`object\` | \`defaultTheme\` | An object describing a style of the component. See more in Theme section.  |
-`
+`;
 
 ButtonExample.styleguide = {
   ...ButtonExample.styleguide,
-  title: 'Button',
-  description,
-}
+  title: "Button",
+  description
+};
 
-export default ButtonExample
+export default ButtonExample;

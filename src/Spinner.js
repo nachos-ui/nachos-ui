@@ -7,7 +7,7 @@ class Spinner extends Component {
   static themeConfig = {
     settings: {
       size: 25,
-      color: "#2f8cff",
+      color: "@primaryColor",
       duration: 450
     },
     style: {

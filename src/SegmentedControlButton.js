@@ -72,7 +72,7 @@ const SegmentedControlButton = props => {
 SegmentedControlButton.themeConfig = {
   settings: {
     iconSize: 20,
-    iconColor: "#bdc1cc",
+    iconColor: "@primaryColor",
     iconPosition: "left"
   },
   style: {
@@ -81,24 +81,21 @@ SegmentedControlButton.themeConfig = {
       padding: 0,
       paddingHorizontal: 0,
       borderWidth: 1,
-      borderColor: "#ddd",
+      borderColor: "#f4f4f5",
       backgroundColor: "#fff"
     },
     baseText: {
       fontSize: 12,
       fontWeight: "500",
-      color: "#bdc1cc"
+      color: "@primaryColor"
     },
     selected: {
-      backgroundColor: "#2f8cff",
-      borderColor: "#2f8cff"
+      backgroundColor: "#f5f5f6"
     },
-    selectedText: {
-      color: "#fff"
-    },
+    selectedText: {},
     first_row: {
-      borderBottomLeftRadius: 0,
-      borderTopLeftRadius: 0,
+      borderBottomLeftRadius: 5,
+      borderTopLeftRadius: 5,
       borderRightWidth: 0
     },
     first_column: {
@@ -107,8 +104,8 @@ SegmentedControlButton.themeConfig = {
       borderBottomWidth: 0
     },
     last_row: {
-      borderBottomRightRadius: 0,
-      borderTopRightRadius: 0,
+      borderBottomRightRadius: 5,
+      borderTopRightRadius: 5,
       borderLeftWidth: 0
     },
     last_column: {

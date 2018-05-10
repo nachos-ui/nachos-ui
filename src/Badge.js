@@ -26,11 +26,13 @@ Badge.themeConfig = {
       padding: 10,
       paddingVertical: 4,
       backgroundColor: "@accentColor",
-      borderRadius: 20
+      borderRadius: 20,
+      minWidth: 40
     },
     text: {
       fontSize: 12,
-      color: "#fff"
+      color: "#fff",
+      textAlign: "center"
     }
   }
 };

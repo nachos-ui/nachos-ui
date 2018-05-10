@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/dist/Ionicons";
+import Icon from "react-native-vector-icons/Ionicons";
 import { withTheme } from "./Theme";
 
 const Checkbox = props => {
@@ -57,25 +57,25 @@ Checkbox.themeConfig = {
   settings: {
     iconName: "md-checkmark",
     iconColor: "#fff",
-    iconSize: 20
+    iconSize: 18
   },
   style: {
     base: {
       position: "relative",
-      width: 26,
-      height: 26,
+      width: 22,
+      height: 22,
       borderWidth: 2,
       justifyContent: "center",
       alignItems: "center",
-      borderColor: "#2f8cff",
+      borderColor: "#ececee",
       borderRadius: 5
     },
     active: {
-      backgroundColor: "#2f8cff"
+      backgroundColor: "#fff"
     },
     check: {
       backgroundColor: "transparent",
-      color: "#fff",
+      color: "@primaryColor",
       marginTop: 2
     }
   }

@@ -2,7 +2,7 @@ import React from "react";
 import { View, ScrollView } from "react-native";
 import H2 from "../src/typography/H2";
 import { Provider } from "../src/Theme";
-
+console.log(Provider);
 const components = require("../docs");
 
 const theme = {
@@ -26,7 +26,9 @@ const Showcase = () => {
           <H2 style={theme.h2}>{value}</H2>
         </View>
         <View style={theme.componentContainer}>
-          {React.createElement(component)}
+          {React.createElement(
+            component.__esModule ? component.default : component
+          )}
         </View>
       </View>
     );

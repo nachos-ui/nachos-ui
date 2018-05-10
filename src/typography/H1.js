@@ -4,8 +4,6 @@ import Text from "./Text";
 import { withTheme } from "../Theme";
 
 const H1 = props => {
-  console.log(props);
-  console.log("h1", props.theme);
   return <Text {...props} />;
 };
 
