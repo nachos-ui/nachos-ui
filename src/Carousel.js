@@ -13,6 +13,9 @@ import { withTheme } from "./Theme";
 class Carousel extends Component {
   static themeConfig = {
     style: {
+      scrollView: {
+        overflowX: Platform.OS === "web" ? "hidden" : undefined
+      },
       pageIndicatorStyle: {
         width: 6,
         height: 6,
@@ -22,18 +25,19 @@ class Carousel extends Component {
       },
       activePageIndicatorStyle: {
         position: "absolute",
-        backgroundColor: "#ffc81f"
+        backgroundColor: "@primaryColor"
       },
       pageIndicatorContainerStyle: {
         position: "absolute",
         alignSelf: "center",
         flexDirection: "row",
-        bottom: 10
+        bottom: 20
       }
     }
   };
   static defaultProps = {
     width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
     index: 0,
     loop: true,
     autoplay: true,
@@ -350,7 +354,7 @@ class Carousel extends Component {
   }
 
   render() {
-    const { children, width, loop } = this.props;
+    const { children, width, height, loop, theme } = this.props;
     const { scrollValue } = this.state;
 
     let pages = React.Children.toArray(children);
@@ -390,11 +394,12 @@ class Carousel extends Component {
       );
     }
     return (
-      <View>
+      <View style={{ width, height: height }}>
         <ScrollView
+          className="foo-bar"
           ref={ref => (this.scrollView = ref)}
-          style={{ width: width }}
-          contentContainerStyle={{ width: width + 1 }}
+          style={[theme.scrollView, { width, height: height }]}
+          contentContainerStyle={{ width: width + 1, height: width + 1 }}
           horizontal
           pagingEnabled
           directionalLockEnabled
