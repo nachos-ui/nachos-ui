@@ -54,7 +54,6 @@ const Button = props => {
   const textStyles = [
     theme.baseText,
     theme[`text_kind_${kind}`],
-    theme[`state_${type}`],
     theme[`iconState_${type}`],
     textStyle,
     disabled ? disabledTextStyle : {}

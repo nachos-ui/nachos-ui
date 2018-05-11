@@ -45,7 +45,9 @@ const SegmentedControlButton = props => {
   return (
     <Button
       iconColor={iconColor}
-      iconActiveColor={StyleSheet.flatten(theme.selectedText).color}
+      iconActiveColor={
+        iconColor || StyleSheet.flatten(theme.selectedText).color || undefined
+      }
       iconSize={iconSize}
       iconPosition={iconPosition}
       kind="squared"
