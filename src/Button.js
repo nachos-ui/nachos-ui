@@ -7,6 +7,7 @@ import { StyleSheet } from "react-native";
 
 const Button = props => {
   const {
+    theme,
     activeOpacity,
     disabled,
     children,
@@ -17,6 +18,7 @@ const Button = props => {
     type,
     kind,
     uppercase,
+    iconColor = StyleSheet.flatten(theme[`iconState_${type}`]).color,
     iconName,
     iconSize,
     iconActiveColor,
@@ -25,7 +27,6 @@ const Button = props => {
     onPressIn,
     onPressOut,
     onLongPress,
-    theme,
     // NOTE: injected by a Switcher
     selected,
     onChange,
@@ -62,7 +63,6 @@ const Button = props => {
   let leftIcon;
   let rightIcon;
   if (iconName) {
-    const iconColor = StyleSheet.flatten(theme[`iconState_${type}`]).color;
     const icon = (
       <Icon
         name={iconName}
@@ -106,7 +106,6 @@ const Button = props => {
 
 Button.themeConfig = {
   settings: {
-    iconColor: "#fff",
     iconActiveColor: "rgba(0, 0, 0, 0.5)"
   },
   style: {
