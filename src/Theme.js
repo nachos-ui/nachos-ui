@@ -27,7 +27,7 @@ export class Provider extends React.Component {
       computedStyle: themeConfig.style
         ? StyleSheet.create(themeConfig.style)
         : {},
-      props: themeConfig.settings
+      props: themeConfig.props
     });
   };
 

@@ -52,7 +52,7 @@ const Bubble = props => {
 };
 
 Bubble.themeConfig = {
-  settings: {},
+  props: {},
   style: {
     base: {
       position: "relative",

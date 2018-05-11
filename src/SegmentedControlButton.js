@@ -72,7 +72,7 @@ const SegmentedControlButton = props => {
 };
 
 SegmentedControlButton.themeConfig = {
-  settings: {
+  props: {
     iconSize: 20,
     iconColor: "@primaryColor",
     iconPosition: "left"

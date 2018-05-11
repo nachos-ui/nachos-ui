@@ -58,7 +58,7 @@ const Input = props => {
 };
 
 Input.themeConfig = {
-  settings: {
+  props: {
     iconSize: 20,
     iconStates: {
       valid: "md-checkmark",

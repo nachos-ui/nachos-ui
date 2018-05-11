@@ -15,5 +15,6 @@ module.exports = {
   Slider: require("./Slider"),
   Spinner: require("./Spinner"),
   Switcher: require("./Switcher"),
-  Typography: require("./Typography")
+  Typography: require("./Typography"),
+  ThemeProvider: require("./ThemeProvider")
 };

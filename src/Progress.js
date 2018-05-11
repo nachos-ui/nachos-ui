@@ -27,7 +27,7 @@ const Progress = props => {
 };
 
 Progress.themeConfig = {
-  settings: {
+  props: {
     width: 300,
     height: 6
   },

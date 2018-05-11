@@ -2,7 +2,6 @@ import React from "react";
 import { View, ScrollView } from "react-native";
 import H2 from "../src/typography/H2";
 import { Provider } from "../src/Theme";
-console.log(Provider);
 const components = require("../docs");
 
 const theme = {

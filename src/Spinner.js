@@ -5,7 +5,7 @@ import { withTheme } from "./Theme";
 
 class Spinner extends Component {
   static themeConfig = {
-    settings: {
+    props: {
       size: 25,
       color: "@primaryColor",
       duration: 450
@@ -90,10 +90,10 @@ class Spinner extends Component {
     const theme = this.props.theme;
 
     const spinnerItem = {
-      width: this.props.size || theme.settings.spinnerSize,
-      height: this.props.size || theme.settings.spinnerSize,
-      borderRadius: this.props.size || theme.settings.spinnerSize,
-      backgroundColor: this.props.color || theme.settings.spinnerColor
+      width: this.props.size,
+      height: this.props.size,
+      borderRadius: this.props.size,
+      backgroundColor: this.props.color
     };
     const firstScale = this._interpolate(this.firstAnimatedValue);
     const secondScale = this._interpolate(this.secondAnimatedValue);

@@ -7,7 +7,7 @@ import { withTheme } from "./Theme";
 
 class Indicator extends Component {
   static themeConfig = {
-    settings: {
+    props: {
       types: {
         success: "#66bd2b",
         warning: "#ef4836",
