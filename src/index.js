@@ -30,5 +30,6 @@ module.exports = {
   P: require("./typography/P"),
   Strong: require("./typography/Strong"),
   // theme
-  withTheme: require("./Theme").withTheme
+  withTheme: require("./Theme").withTheme,
+  ThemeProvider: require("./Theme").Provider
 };

@@ -8,18 +8,13 @@ export const ThemeContext = React.createContext({
 });
 
 export class Provider extends React.Component {
-  state = {};
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (JSON.stringify(nextProps.theme) !== JSON.stringify(prevState)) {
-      //return this.createTheme(nextProps.theme);
-    }
-    return null;
-  }
-
   themeConfigs = {};
   branding = defaultBranding;
 
   updateThemeConfig = (name, themeConfig) => {
+    if (this.props.theme && this.props.theme[name])
+      themeConfig = mergeDeep(themeConfig, this.props.theme[name]);
+
     themeConfig = JSON.parse(
       JSON.stringify(themeConfig).replace(/@([\w_-]+)/gm, (match, key) => {
         if (!this.branding[key]) console.log(key);
@@ -28,9 +23,6 @@ export class Provider extends React.Component {
       })
     );
 
-    // if (name === "H1") {
-    //   console.log(themeConfig);
-    // }
     return (this.themeConfigs[name] = {
       computedStyle: themeConfig.style
         ? StyleSheet.create(themeConfig.style)
@@ -67,27 +59,6 @@ export function withTheme(componentName, ThemedComponent) {
       }
     }
 
-    isObject(item) {
-      return item && typeof item === "object" && !Array.isArray(item);
-    }
-
-    mergeDeep(target, ...sources) {
-      if (!sources.length) return target;
-      const source = sources.shift();
-
-      if (this.isObject(target) && this.isObject(source)) {
-        for (const key in source) {
-          if (this.isObject(source[key])) {
-            if (!target[key]) Object.assign(target, { [key]: {} });
-            this.mergeDeep(target[key], source[key]);
-          } else {
-            Object.assign(target, { [key]: source[key] });
-          }
-        }
-      }
-
-      return this.mergeDeep(target, ...sources);
-    }
     render() {
       return (
         <ThemeContext.Consumer>
@@ -96,7 +67,7 @@ export function withTheme(componentName, ThemedComponent) {
               (theme[componentName] || {}).computedStyle || {};
 
             const fullTheme = this.props.theme
-              ? this.mergeDeep({}, computedTheme, this.props.theme)
+              ? mergeDeep({}, computedTheme, this.props.theme)
               : computedTheme;
 
             return (
@@ -111,4 +82,26 @@ export function withTheme(componentName, ThemedComponent) {
       );
     }
   };
+}
+
+function isObject(item) {
+  return item && typeof item === "object" && !Array.isArray(item);
+}
+
+function mergeDeep(target, ...sources) {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} });
+        mergeDeep(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
+    }
+  }
+
+  return mergeDeep(target, ...sources);
 }
