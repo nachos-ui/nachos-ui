@@ -11,6 +11,13 @@ export class Provider extends React.Component {
   themeConfigs = {};
   branding = defaultBranding;
 
+  constructor(props) {
+    super(props);
+    if (props.branding) {
+      this.branding = deepMerge(this.branding, props.branding);
+    }
+  }
+
   updateThemeConfig = (name, themeConfig) => {
     if (this.props.theme && this.props.theme[name])
       themeConfig = mergeDeep(themeConfig, this.props.theme[name]);
