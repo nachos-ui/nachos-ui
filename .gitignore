@@ -57,3 +57,4 @@ lib/
 bundle.js
 /coverage/
 
+/yarn-error.log
