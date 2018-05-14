@@ -15,18 +15,11 @@
     "build": "babel src/ -d lib/",
     "build:web": "webpack --progress -p",
     "prepublish": "npm run build",
-    "docs": "rsg \"docs/*.js\" -c \"styleguide.js\" -v",
-    "docs:run": "http-server ./styleguide",
-    "docs:prod": "npm run docs -- -r \"nachos-ui/docs\"",
-    "start": "echo \"run `exp start` from native-example dir\"",
-    "start:web":
-      "webpack-dev-server --port 3000 --config webpack.config.js --inline --hot --colors --quiet",
-    "lint": "eslint src docs",
-    "lint:fix": "eslint --fix src docs",
-    "fmt":
-      "prettier --print-width 70 --write '{src,docs}/**/*.js'; npm run lint:fix; gulp semistrip",
+    "start:native": "exp start ./.storybook-native",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "start": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "moduleNameMapper": {
@@ -60,6 +53,13 @@
   },
   "devDependencies": {
     "@expo/vector-icons": "^6.3.1",
+    "@storybook/addon-actions": "^3.4.4",
+    "@storybook/addon-info": "^3.4.4",
+    "@storybook/addon-links": "^3.4.4",
+    "@storybook/addon-options": "^3.4.4",
+    "@storybook/addon-viewport": "^3.4.4",
+    "@storybook/addons": "^3.4.4",
+    "@storybook/react": "^3.4.4",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.2.3",
@@ -72,6 +72,7 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
+    "babel-runtime": "^6.26.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.1.1",
@@ -96,7 +97,7 @@
     "react-native-mock": "^0.3.1",
     "react-native-web": "^0.6.1",
     "react-test-renderer": "^16.3.1",
-    "rsg-alt": "^3.15.0",
+    "rsg-alt": "^3.17.1",
     "string-replace-webpack-plugin": "^0.0.5",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
