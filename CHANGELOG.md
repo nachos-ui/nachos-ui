@@ -11,6 +11,7 @@
 * Refreshed default theme colors
 * Merged TabButton into SegmentedControlButton
 * Added visual regression tests
+* Generate sketch files using stock or custom themes
 
 ### 0.1.2
 
