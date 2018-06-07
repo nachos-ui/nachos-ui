@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<a
+  className="rn-backgroundColor-wib322 rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-1c7cd3n rn-cursor-1loqt21 rn-display-1471scf rn-fontFamily-14xgk7a rn-fontSize-1b43r93 rn-fontStyle-13uqrnb rn-fontVariant-ebii48 rn-fontWeight-1it3c9n rn-lineHeight-t9a87b rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textAlign-fdjqy7 rn-textDecorationColor-d1ucft rn-textDecoration-1ncyl3j rn-textDecorationStyle-1a2p6p6 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+  dir="auto"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="link"
+>
+  This is a link
+</a>
+`;

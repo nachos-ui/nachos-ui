@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-15b02fe rn-display-1471scf rn-fontFamily-14xgk7a rn-fontSize-a023e6 rn-fontStyle-13uqrnb rn-fontVariant-ebii48 rn-fontWeight-majxgm rn-lineHeight-t9a87b rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-m611by rn-paddingRight-9aemit rn-paddingBottom-1mi0q7o rn-paddingLeft-gy4na3 rn-textAlign-fdjqy7 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+  dir="auto"
+>
+  Text
+</div>
+`;

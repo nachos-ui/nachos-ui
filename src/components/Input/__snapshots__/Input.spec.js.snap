@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="rn-alignItems-1oszu61 rn-alignSelf-1pz39u2 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-height-195d4m8 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+  style={
+    Object {
+      "backgroundColor": "rgba(255,255,255,1)",
+      "borderBottomColor": "rgba(189,193,204,1)",
+      "borderLeftColor": "rgba(189,193,204,1)",
+      "borderRightColor": "rgba(189,193,204,1)",
+      "borderTopColor": "rgba(189,193,204,1)",
+    }
+  }
+>
+  <input
+    autoCapitalize="sentences"
+    autoComplete="on"
+    autoCorrect="on"
+    className="rn-MozAppearance-97bpaa rn-alignSelf-1pz39u2 rn-appearance-30o5oe rn-backgroundColor-wib322 rn-borderTopColor-yhjsbo rn-borderRightColor-o38ixj rn-borderBottomColor-85ahfa rn-borderLeftColor-1eno36 rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-fontFamily-14xgk7a rn-fontSize-1b43r93 rn-height-195d4m8 rn-paddingTop-wk8lta rn-paddingBottom-1mdbw0j rn-paddingLeft-f727ji rn-paddingRight-1qortcd rn-resize-1dz5y72"
+    dir="auto"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onSelect={[Function]}
+    readOnly={false}
+    spellCheck={true}
+    theme={
+      Object {
+        "base": 75,
+        "disabled": 77,
+        "error": 79,
+        "icon": 82,
+        "input": 81,
+        "normal": 76,
+        "valid": 78,
+        "warn": 80,
+      }
+    }
+    type="text"
+    value="Your name"
+  />
+</div>
+`;
+
+exports[`should render disabled 1`] = `
+<div
+  className="rn-alignItems-1oszu61 rn-alignSelf-1pz39u2 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-height-195d4m8 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-opacity-1oec5bt rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+  style={
+    Object {
+      "backgroundColor": "rgba(255,255,255,1)",
+      "borderBottomColor": "rgba(189,193,204,1)",
+      "borderLeftColor": "rgba(189,193,204,1)",
+      "borderRightColor": "rgba(189,193,204,1)",
+      "borderTopColor": "rgba(189,193,204,1)",
+    }
+  }
+>
+  <input
+    autoCapitalize="sentences"
+    autoComplete="on"
+    autoCorrect="on"
+    className="rn-MozAppearance-97bpaa rn-alignSelf-1pz39u2 rn-appearance-30o5oe rn-backgroundColor-wib322 rn-borderTopColor-yhjsbo rn-borderRightColor-o38ixj rn-borderBottomColor-85ahfa rn-borderLeftColor-1eno36 rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-fontFamily-14xgk7a rn-fontSize-1b43r93 rn-height-195d4m8 rn-paddingTop-wk8lta rn-paddingBottom-1mdbw0j rn-paddingLeft-f727ji rn-paddingRight-1qortcd rn-resize-1dz5y72"
+    dir="auto"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onSelect={[Function]}
+    readOnly={true}
+    spellCheck={true}
+    theme={
+      Object {
+        "base": 83,
+        "disabled": 85,
+        "error": 87,
+        "icon": 90,
+        "input": 89,
+        "normal": 84,
+        "valid": 86,
+        "warn": 88,
+      }
+    }
+    type="text"
+    value="Your name"
+  />
+</div>
+`;

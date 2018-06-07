@@ -10,26 +10,16 @@
     "email": "petr@avocode.com"
   },
   "repository": "avocode/nachos-ui",
-  "keywords": [
-    "react",
-    "react-component",
-    "react-native",
-    "ui-kit"
-  ],
+  "keywords": ["react", "react-component", "react-native", "ui-kit"],
   "scripts": {
     "build": "babel src/ -d lib/",
     "build:web": "webpack --progress -p",
     "prepublish": "npm run build",
-    "docs": "rsg \"docs/*.js\" -c \"styleguide.js\" -v",
-    "docs:run": "http-server ./styleguide",
-    "docs:prod": "npm run docs -- -r \"nachos-ui/docs\"",
-    "start": "react-native run-ios",
-    "start:web": "webpack-dev-server --port 3000 --config webpack.config.js --inline --hot --colors --quiet",
-    "lint": "eslint src docs",
-    "lint:fix": "eslint --fix src docs",
-    "fmt": "prettier --print-width 70 --write '{src,docs}/**/*.js'; npm run lint:fix; gulp semistrip",
+    "native": "exp start --host=lan ./.storybook-native",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "start": "start-storybook -p 6006",
+    "docs": "build-storybook -c .storybook -o .styleguide"
   },
   "jest": {
     "moduleNameMapper": {
@@ -47,27 +37,34 @@
       "__DEV__": true
     },
     "setupTestFrameworkScriptFile": "<rootDir>/scripts/enzyme_setup.js",
-    "testMatch": [
-      "<rootDir>/src/**/?(*.)spec.js"
-    ]
+    "testMatch": ["<rootDir>/src/**/?(*.)spec.js"]
   },
   "peerDependencies": {
-    "react": ">=16.3.1",
-    "react-native": ">=0.55.0"
+    "react": ">=16.3.0",
+    "react-native": ">=0.52.0"
   },
   "dependencies": {
+    "is-obj": "^1.0.1",
     "md5": "^2.2.1",
     "prop-types": "^15.6.1",
     "query-string": "^4.3.1",
     "react-art": "^16.3.2",
-    "react-native-vector-icons": "^4.6.0",
-    "react-theme": "^0.1.4"
+    "react-helmet": "^5.2.0",
+    "react-native-vector-icons": "^4.6.0"
   },
   "devDependencies": {
+    "@expo/vector-icons": "^6.3.1",
+    "@storybook/addon-actions": "^3.4.6",
+    "@storybook/addon-info": "^3.4.6",
+    "@storybook/addon-links": "^3.4.6",
+    "@storybook/addon-options": "^3.4.6",
+    "@storybook/addon-viewport": "^3.4.6",
+    "@storybook/addons": "^3.4.6",
+    "@storybook/react": "^3.4.6",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.2.3",
-    "babel-jest": "^18.0.0",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^6.2.10",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-polyfill": "^6.20.0",
@@ -76,15 +73,17 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
+    "babel-runtime": "^6.26.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.1.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.34.1",
     "eslint-plugin-import": "^2.6.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.1.0",
     "estraverse-fb": "^1.3.1",
+    "exp": "53.1.0",
     "file-loader": "^0.9.0",
     "gulp": "^3.9.1",
     "gulp-replace": "^0.5.4",
@@ -94,13 +93,12 @@
     "json-loader": "^0.5.4",
     "prettier": "^1.12.1",
     "raw-loader": "^0.5.1",
-    "react": "16.3.1",
-    "react-dom": "16.3.1",
-    "react-native": ">=0.55.0",
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
     "react-native-mock": "^0.3.1",
     "react-native-web": "^0.6.1",
     "react-test-renderer": "^16.3.1",
-    "rsg-alt": "^3.15.0",
+    "rsg-alt": "^3.17.1",
     "string-replace-webpack-plugin": "^0.0.5",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
