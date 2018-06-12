@@ -1,7 +1,7 @@
 {
   "name": "nachos-ui",
   "description": "Nachos UI is a React Native component library",
-  "version": "0.1.2",
+  "version": "0.2.0-beta.1",
   "humanName": "Nachos UI",
   "license": "MIT",
   "main": "./lib/index.js",
