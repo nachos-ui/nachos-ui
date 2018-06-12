@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.2.0
+### 0.2.0-beta.1
 
 * All new theme system and API for theming
 * New Carousel component that now snaps and no scroll bar on web and autoplay
