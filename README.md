@@ -1,6 +1,6 @@
 ![Nachos UI](https://cldup.com/xHYkAezOnI.jpg)
 
-[![Build Status](https://api.travis-ci.org/avocode/nachos-ui.svg?branch=master)](https://travis-ci.org/avocode/nachos-ui)
+[![Build Status](https://api.travis-ci.org/avocode/nachos-ui.svg?branch=master)](https://travis-ci.org/avocode/nachos-ui) [![Greenkeeper badge](https://badges.greenkeeper.io/nachos-ui/nachos-ui.svg)](https://greenkeeper.io/)
 
 ## Intro
 
