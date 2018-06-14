@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        ".storybook-native/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
