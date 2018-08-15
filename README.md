@@ -30,6 +30,18 @@ OR
 $ yarn add nachos-ui
 ```
 
+The ThemeProvider component should be set at the highest level of your app. If it is not, Nachos UI components will NOT render.
+
+```
+import { ThemeProvider } from "nachos-ui";
+
+export default (App = () => (
+  <ThemeProvider>
+    <RestOfYourApp />
+  </ThemeProvider>
+));
+```
+
 ```jsx
 import React from 'react'
 import { View } from 'react-native'
